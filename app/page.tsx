@@ -3,7 +3,6 @@ import HeroSection from '@/components/sections/HeroSection'
 import TickerSection from '@/components/sections/TickerSection'
 import PhilosophySection from '@/components/sections/PhilosophySection'
 import WorkSection from '@/components/sections/WorkSection'
-import StatsSection from '@/components/sections/StatsSection'
 import ImpactSection from '@/components/sections/ImpactSection'
 import ReasonSection from '@/components/sections/ReasonSection'
 import TimelineSection from '@/components/sections/TimelineSection'
@@ -32,8 +31,6 @@ export default function Home() {
       <WorkSection />
       {/* 黒帯インパクトセクション */}
       <ImpactSection />
-      {/* 未経験でも安心できる理由 */}
-      <StatsSection />
       {/* 選ばれる理由 */}
       <ReasonSection />
       {/* 1日の流れ */}

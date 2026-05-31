@@ -1,11 +1,21 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, useSpring, useMotionValue } from 'framer-motion'
+
+function isDesktopPointer(): boolean {
+  if (typeof window === 'undefined') return false
+  return (
+    window.matchMedia('(hover: hover)').matches &&
+    window.matchMedia('(pointer: fine)').matches &&
+    window.innerWidth >= 1024
+  )
+}
 
 export default function CustomCursor() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
   const [hovered, setHovered] = useState(false)
+  const [active, setActive] = useState(false)
 
   const springConfig = { damping: 28, stiffness: 280, mass: 0.5 }
   const dotX = useSpring(cursorX, { damping: 40, stiffness: 500 })
@@ -14,6 +24,15 @@ export default function CustomCursor() {
   const ringY = useSpring(cursorY, springConfig)
 
   useEffect(() => {
+    const checkDevice = () => setActive(isDesktopPointer())
+    checkDevice()
+    window.addEventListener('resize', checkDevice)
+    return () => window.removeEventListener('resize', checkDevice)
+  }, [])
+
+  useEffect(() => {
+    if (!active) return
+
     const move = (e: MouseEvent) => {
       cursorX.set(e.clientX)
       cursorY.set(e.clientY)
@@ -36,7 +55,9 @@ export default function CustomCursor() {
         el.removeEventListener('mouseleave', onLeave)
       })
     }
-  }, [cursorX, cursorY])
+  }, [active, cursorX, cursorY])
+
+  if (!active) return null
 
   return (
     <>

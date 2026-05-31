@@ -363,6 +363,16 @@ img, svg { display: block; }
   z-index: 9998;
 }
 
+/* スマホ・タブレット・タッチデバイスではカーソルを非表示 */
+@media (max-width: 1023px) {
+  .cursor-dot,
+  .cursor-ring { display: none !important; }
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring { display: none !important; }
+}
+
 /* ───────────────────────────────────────
    HORIZONTAL RULES
 ─────────────────────────────────────── */
