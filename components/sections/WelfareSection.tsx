@@ -31,7 +31,7 @@ const BENEFITS = [
     title: '昼食補助',
     body: '毎日の昼食代を会社が補助。食費の心配をなくし、現場仕事に集中できる環境を整えています。',
     accent: '#f97316',
-    photo: '/images/welfare-lunch.jpg',
+    photo: '/images/welfare-lunch.png',
     photoAlt: '昼食補助あります',
   },
   {
@@ -40,7 +40,7 @@ const BENEFITS = [
     title: '資格取得支援',
     body: '電気工事士・冷媒取扱資格などの受験費・テキスト・講習費を全額会社負担。資格は給与に直結。',
     accent: '#f59e0b',
-    photo: '/images/welfare-certification.jpg',
+    photo: '/images/welfare-certification.png',
     photoAlt: '電気工事士テキストとヘルメット',
   },
   {
