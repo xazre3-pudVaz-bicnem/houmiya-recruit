@@ -97,6 +97,9 @@ export default function Welfare() {
                 <tr><th>車両貸出</th><td>現場移動用の会社車両あり（普通免許AT可）</td></tr>
                 <tr><th>昼食補助</th><td>毎日の昼食代を一部補助</td></tr>
                 <tr><th>資格取得支援</th><td>受験費用・テキスト代 会社全額負担</td></tr>
+                <tr><th>制服貸与</th><td>制服あり（会社支給）</td></tr>
+                <tr><th>交通費</th><td>交通費 別途支給</td></tr>
+                <tr><th>深夜・休日手当</th><td>深夜手当・休日手当 支給</td></tr>
                 <tr><th>社宅相談</th><td>詳細は面談にてご案内（相談可）</td></tr>
                 <tr><th>チーム環境</th><td>20代中心の若いスタッフが活躍中</td></tr>
               </tbody>
