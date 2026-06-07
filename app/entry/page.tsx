@@ -58,7 +58,7 @@ export default function Entry() {
               <div className="bg-gray-50 p-5">
                 <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">LINE</p>
                 <a
-                  href="https://line.me/"
+                  href="https://line.me/R/ti/p/@432ridrn?oat_content=url"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-navy font-bold text-sm hover:underline"

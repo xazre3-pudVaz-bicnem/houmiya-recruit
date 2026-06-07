@@ -36,12 +36,20 @@ export default function EntryForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setLoading(true)
-    // 本番環境ではここでAPIへの送信処理を実装してください
-    // 例: Formspree, Netlify Forms, 自社APIなど
-    await new Promise((resolve) => setTimeout(resolve, 800))
-    setLoading(false)
-    setSubmitted(true)
-    setForm(initialData)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error('send failed')
+      setSubmitted(true)
+      setForm(initialData)
+    } catch {
+      alert('送信に失敗しました。お電話（046-205-4558）またはLINEよりご連絡ください。')
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {

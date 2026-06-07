@@ -19,7 +19,7 @@ const footerLinks = [
 const snsLinks = [
   { href: 'https://www.instagram.com/', label: 'Instagram', abbr: 'IG', note: '施工現場・日常' },
   { href: 'https://www.tiktok.com/',    label: 'TikTok',    abbr: 'TT', note: '工事ショート動画' },
-  { href: 'https://line.me/',           label: 'LINE',      abbr: 'LN', note: '気軽に問い合わせ' },
+  { href: 'https://line.me/R/ti/p/@432ridrn?oat_content=url',           label: 'LINE',      abbr: 'LN', note: '気軽に問い合わせ' },
 ]
 
 export default function Footer() {
