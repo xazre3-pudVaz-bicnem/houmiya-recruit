@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import EntrySection from '@/components/EntrySection'
 import PageHero from '@/components/PageHero'
 
@@ -33,6 +34,19 @@ export default function Recruit() {
               神奈川県全域の現場を担当するため、多様な経験を積みながら着実に技術を身につけられます。
               資格取得支援・車両貸出・社宅相談可能など、長く働ける環境を整えています。
             </p>
+          </div>
+
+          {/* Staff photos */}
+          <div className="grid grid-cols-3 gap-px bg-gray-200 mb-12 -mx-4 sm:-mx-6">
+            <div className="relative h-36 sm:h-52 overflow-hidden">
+              <Image src="/images/photo-aircon-complete-2.jpg" alt="エアコン工事完了" fill className="object-cover object-top" sizes="33vw" />
+            </div>
+            <div className="relative h-36 sm:h-52 overflow-hidden">
+              <Image src="/images/photo-vehicle-loading.jpg" alt="現場への準備" fill className="object-cover" sizes="33vw" />
+            </div>
+            <div className="relative h-36 sm:h-52 overflow-hidden">
+              <Image src="/images/photo-customer-service.jpg" alt="お客様への対応" fill className="object-cover" sizes="33vw" />
+            </div>
           </div>
 
           {/* Recruit table */}

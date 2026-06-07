@@ -28,7 +28,7 @@ export default function ElectricalWork() {
           {/* Lead photo */}
           <div className="h-52 sm:h-72 mb-12 relative overflow-hidden">
             <Image
-              src="/images/electrical-v2.jpg"
+              src="/images/photo-aircon-balcony.jpg"
               alt="電気工事の現場"
               fill
               className="object-cover"
@@ -60,7 +60,7 @@ export default function ElectricalWork() {
               style={{ minHeight: '200px' }}
             >
               <Image
-                src="/images/welfare-certification.jpg"
+                src="/images/welfare-certification.png"
                 alt="電気工事士テキストと資格取得サポート"
                 fill
                 className="object-cover"

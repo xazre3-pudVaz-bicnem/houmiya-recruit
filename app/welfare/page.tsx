@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import EntrySection from '@/components/EntrySection'
 import PageHero from '@/components/PageHero'
 
@@ -84,6 +85,33 @@ export default function Welfare() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Work environment photos */}
+          <div className="mb-10">
+            <h2 className="text-lg font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">
+              働く環境
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-gray-200">
+              <div className="relative h-44 sm:h-56 overflow-hidden">
+                <Image src="/images/photo-vehicle-white.jpg" alt="会社の車両（ハイエース）" fill className="object-cover" sizes="(min-width: 640px) 33vw, 50vw" />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-3 py-2">
+                  <p className="text-white text-xs font-bold">社用車あり</p>
+                </div>
+              </div>
+              <div className="relative h-44 sm:h-56 overflow-hidden">
+                <Image src="/images/photo-staff-chat.jpg" alt="スタッフ同士の会話" fill className="object-cover" sizes="(min-width: 640px) 33vw, 50vw" />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-3 py-2">
+                  <p className="text-white text-xs font-bold">20代中心のチーム</p>
+                </div>
+              </div>
+              <div className="relative h-44 sm:h-56 overflow-hidden col-span-2 sm:col-span-1">
+                <Image src="/images/photo-warehouse-staff.jpg" alt="倉庫前のスタッフ" fill className="object-cover" sizes="(min-width: 640px) 33vw, 100vw" />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-3 py-2">
+                  <p className="text-white text-xs font-bold">充実した設備・資材</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Summary table */}

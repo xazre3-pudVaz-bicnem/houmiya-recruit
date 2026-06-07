@@ -28,7 +28,7 @@ export default function WaterHeaterWork() {
           {/* Lead photo */}
           <div className="h-52 sm:h-72 mb-12 relative overflow-hidden">
             <Image
-              src="/images/water-heater-v2.jpg"
+              src="/images/photo-customer-service.jpg"
               alt="給湯器交換工事の現場"
               fill
               className="object-cover"

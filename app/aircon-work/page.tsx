@@ -28,7 +28,7 @@ export default function AirconWork() {
           {/* Lead photo */}
           <div className="h-52 sm:h-72 mb-12 relative overflow-hidden">
             <Image
-              src="/images/aircon-v2.jpg"
+              src="/images/photo-aircon-outdoor.jpg"
               alt="エアコン工事の現場"
               fill
               className="object-cover"
@@ -51,6 +51,19 @@ export default function AirconWork() {
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               エアコン職人として一人立ちするまでの期間は個人差がありますが、多くのスタッフが3〜6ヶ月で基本的な工事を一人でこなせるようになっています。神奈川県全域の現場を経験することで、多様な状況に対応できる技術が身につきます。
             </p>
+          </div>
+
+          {/* Photo row */}
+          <div className="grid grid-cols-3 gap-px bg-gray-200 mb-12 -mx-4 sm:-mx-6">
+            <div className="relative h-32 sm:h-52 overflow-hidden">
+              <Image src="/images/photo-aircon-balcony.jpg" alt="バルコニーでの配管工事" fill className="object-cover" sizes="33vw" />
+            </div>
+            <div className="relative h-32 sm:h-52 overflow-hidden">
+              <Image src="/images/photo-aircon-install.jpg" alt="室内機取付作業" fill className="object-cover object-top" sizes="33vw" />
+            </div>
+            <div className="relative h-32 sm:h-52 overflow-hidden">
+              <Image src="/images/photo-aircon-complete-1.jpg" alt="エアコン工事完了" fill className="object-cover object-top" sizes="33vw" />
+            </div>
           </div>
 
           {/* What you'll do */}

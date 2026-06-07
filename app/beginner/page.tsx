@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import EntrySection from '@/components/EntrySection'
 import PageHero from '@/components/PageHero'
 
@@ -26,11 +27,18 @@ export default function Beginner() {
 
           {/* Reassurance message */}
           <div className="mb-14">
-            <div className="flex flex-col lg:flex-row gap-10 items-start">
-              <div className="lg:w-1/3 flex-shrink-0">
-                <p className="text-6xl font-black text-silver-light leading-none select-none">&quot;</p>
+            <div className="flex flex-col lg:flex-row gap-0 overflow-hidden">
+              <div className="lg:w-2/5 relative h-64 lg:h-auto overflow-hidden flex-shrink-0">
+                <Image
+                  src="/images/photo-aircon-install.jpg"
+                  alt="先輩スタッフと一緒に現場で学ぶ"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  priority
+                />
               </div>
-              <div className="lg:w-2/3">
+              <div className="lg:w-3/5 bg-gray-50 px-6 sm:px-10 py-10 flex flex-col justify-center">
                 <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight leading-snug mb-5">
                   工具の名前も知らなくていい。
                   <br />
@@ -44,6 +52,19 @@ export default function Beginner() {
                   神奈川県内の現場で実際の仕事をしながら、確実に技術を身につけられる環境を整えています。
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* Work environment photos */}
+          <div className="grid grid-cols-3 gap-px bg-gray-200 mb-14 -mx-4 sm:-mx-6">
+            <div className="relative h-28 sm:h-44 overflow-hidden">
+              <Image src="/images/photo-staff-chat.jpg" alt="先輩スタッフとの会話" fill className="object-cover" sizes="33vw" />
+            </div>
+            <div className="relative h-28 sm:h-44 overflow-hidden">
+              <Image src="/images/photo-morning-briefing.jpg" alt="朝の引き継ぎ確認" fill className="object-cover" sizes="33vw" />
+            </div>
+            <div className="relative h-28 sm:h-44 overflow-hidden">
+              <Image src="/images/photo-aircon-complete-1.jpg" alt="工事完了の達成感" fill className="object-cover object-top" sizes="33vw" />
             </div>
           </div>
 

@@ -17,7 +17,7 @@ const works = [
     slug: '/aircon-work',
     title: 'エアコン工事',
     subtitle: 'Air Conditioning Installation',
-    photo: '/images/aircon-v2.jpg',
+    photo: '/images/photo-aircon-outdoor.jpg',
     body: `家庭用・業務用エアコンの取付・交換・撤去工事を担当します。神奈川県内の住宅・マンション・店舗・オフィスなど、様々な現場に出向きます。
 
 エアコン工事は夏季を中心に繁忙期があり、多くの現場を経験できます。配管の取り回し・室外機の設置・試運転まで一連の作業を習得することで、エアコン職人としての確かな技術が身につきます。未経験からでも3〜6ヶ月で一人前の作業ができるようになるスタッフが多く、成長スピードを実感できる仕事です。`,
@@ -28,7 +28,7 @@ const works = [
     slug: '/water-heater-work',
     title: '給湯器交換',
     subtitle: 'Water Heater Replacement',
-    photo: '/images/water-heater-v2.jpg',
+    photo: '/images/photo-customer-service.jpg',
     body: `老朽化した給湯器の撤去・新規給湯器の取付工事を担当します。住宅・マンションのお風呂・台所・洗面所などで使用される給湯器を適切に交換します。
 
 給湯器交換は生活に欠かせない設備の工事であり、お客様からの感謝を直接受けることの多い仕事です。ガス・水道・電気が絡む複合的な工事のため、幅広い知識を身につけられます。神奈川県内の住宅設備求人として、安定した需要があります。`,
@@ -39,7 +39,7 @@ const works = [
     slug: '/electrical-work',
     title: '電気工事',
     subtitle: 'Electrical Work',
-    photo: '/images/electrical-v2.jpg',
+    photo: '/images/photo-aircon-balcony.jpg',
     body: `配線工事・照明設置・分電盤の工事など、電気に関わる様々な工事を担当します。住宅・店舗・オフィスの電気設備を安全に施工します。
 
 電気工事士の資格は会社が費用を全額サポートして取得をアシストします。資格を取得することで収入アップや担当できる工事の幅が広がります。神奈川県内の電気工事求人として、資格取得支援が充実しているのが宝宮設備の特徴です。`,
@@ -68,6 +68,19 @@ export default function Work() {
         </div>
       </section>
 
+      {/* Photo strip */}
+      <div className="grid grid-cols-3 gap-px bg-gray-200">
+        <div className="relative h-44 sm:h-64 overflow-hidden">
+          <Image src="/images/photo-aircon-outdoor.jpg" alt="エアコン室外機工事" fill className="object-cover" sizes="33vw" />
+        </div>
+        <div className="relative h-44 sm:h-64 overflow-hidden">
+          <Image src="/images/photo-aircon-balcony.jpg" alt="バルコニーでの配管工事" fill className="object-cover" sizes="33vw" />
+        </div>
+        <div className="relative h-44 sm:h-64 overflow-hidden">
+          <Image src="/images/photo-customer-service.jpg" alt="お客様への引き渡し" fill className="object-cover" sizes="33vw" />
+        </div>
+      </div>
+
       {/* Work sections - alternating layout */}
       <div className="bg-gray-50">
         {works.map((work, i) => (
@@ -76,7 +89,7 @@ export default function Work() {
             className={`flex flex-col lg:flex-row ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
           >
             {/* Photo */}
-            <div className="lg:w-3/5 h-60 sm:h-80 lg:h-auto lg:min-h-[380px] relative overflow-hidden">
+            <div className="lg:w-3/5 h-64 sm:h-96 lg:h-auto lg:min-h-[420px] relative overflow-hidden">
               <Image
                 src={work.photo}
                 alt={`${work.title}の現場`}

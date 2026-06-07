@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import EntrySection from '@/components/EntrySection'
 import PageHero from '@/components/PageHero'
 
@@ -63,11 +64,39 @@ export default function Day() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
-          <div className="mb-12">
+          <div className="mb-8">
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
               設備工事スタッフとして働く1日の流れをご紹介します。基本的には現場直行・直帰で、会社への出社が少ないのが特徴です。
               現場によりスケジュールは変動しますが、おおよそのイメージとしてご参考ください。
             </p>
+          </div>
+
+          {/* Day-in-life photos */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-gray-200 mb-12 -mx-4 sm:-mx-6">
+            <div className="relative overflow-hidden">
+              <div className="relative h-36 sm:h-44">
+                <Image src="/images/photo-morning-briefing.jpg" alt="朝の準備・確認" fill className="object-cover" sizes="(min-width: 640px) 25vw, 50vw" />
+              </div>
+              <p className="text-[10px] text-gray-500 text-center py-1.5 bg-white tracking-wider">朝の準備</p>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="relative h-36 sm:h-44">
+                <Image src="/images/photo-vehicle-departure-1.jpg" alt="現場へ出発" fill className="object-cover" sizes="(min-width: 640px) 25vw, 50vw" />
+              </div>
+              <p className="text-[10px] text-gray-500 text-center py-1.5 bg-white tracking-wider">現場へ出発</p>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="relative h-36 sm:h-44">
+                <Image src="/images/photo-aircon-outdoor.jpg" alt="現場で作業中" fill className="object-cover" sizes="(min-width: 640px) 25vw, 50vw" />
+              </div>
+              <p className="text-[10px] text-gray-500 text-center py-1.5 bg-white tracking-wider">現場での作業</p>
+            </div>
+            <div className="relative overflow-hidden">
+              <div className="relative h-36 sm:h-44">
+                <Image src="/images/photo-aircon-complete-1.jpg" alt="工事完了" fill className="object-cover object-top" sizes="(min-width: 640px) 25vw, 50vw" />
+              </div>
+              <p className="text-[10px] text-gray-500 text-center py-1.5 bg-white tracking-wider">工事完了</p>
+            </div>
           </div>
 
           {/* Timeline */}
