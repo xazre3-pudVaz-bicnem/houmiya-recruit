@@ -29,7 +29,7 @@ const WP_API =
 export async function fetchPosts(perPage = 12): Promise<WpPost[]> {
   try {
     const res = await fetch(`${WP_API}/posts?_embed&per_page=${perPage}`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 },
     })
     if (!res.ok) return []
     return await res.json()
@@ -40,9 +40,10 @@ export async function fetchPosts(perPage = 12): Promise<WpPost[]> {
 
 export async function fetchPostBySlug(slug: string): Promise<WpPost | null> {
   try {
-    const res = await fetch(`${WP_API}/posts?slug=${encodeURIComponent(slug)}&_embed`, {
-      next: { revalidate: 3600 },
-    })
+    const res = await fetch(
+      `${WP_API}/posts?slug=${encodeURIComponent(slug)}&_embed`,
+      { next: { revalidate: 60 } }
+    )
     if (!res.ok) return null
     const posts: WpPost[] = await res.json()
     return posts[0] ?? null
@@ -56,7 +57,10 @@ export function getFeaturedImageUrl(post: WpPost): string | null {
 }
 
 export function getFeaturedImageAlt(post: WpPost): string {
-  return post._embedded?.['wp:featuredmedia']?.[0]?.alt_text ?? post.title.rendered
+  return (
+    post._embedded?.['wp:featuredmedia']?.[0]?.alt_text ??
+    decodeHtml(post.title.rendered)
+  )
 }
 
 export function getCategories(post: WpPost): string[] {
@@ -74,4 +78,14 @@ export function formatDate(dateStr: string): string {
 
 export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
+}
+
+export function decodeHtml(html: string): string {
+  return stripHtml(html)
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&nbsp;/g, ' ')
 }
