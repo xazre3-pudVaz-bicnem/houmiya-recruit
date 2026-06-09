@@ -10,6 +10,7 @@ const navLinks = [
   { href: '/beginner', label: '未経験の方へ', en: 'Beginner' },
   { href: '/welfare',  label: '福利厚生', en: 'Welfare' },
   { href: '/day',      label: '1日の流れ', en: 'Daily' },
+  { href: '/blog',     label: 'ブログ', en: 'Blog' },
 ]
 
 export default function Header() {

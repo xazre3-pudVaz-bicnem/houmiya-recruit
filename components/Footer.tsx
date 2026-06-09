@@ -11,6 +11,7 @@ const footerLinks = [
   { href: '/welfare',           label: '福利厚生' },
   { href: '/day',               label: '1日の流れ' },
   { href: '/gallery',           label: '現場ギャラリー' },
+  { href: '/blog',              label: '採用ブログ' },
   { href: '/area-kanagawa',     label: '神奈川エリア' },
   { href: '/area-atsugi',       label: '厚木エリア' },
   { href: '/entry',             label: '応募フォーム' },
