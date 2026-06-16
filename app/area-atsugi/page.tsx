@@ -6,7 +6,7 @@ import PageHero from '@/components/PageHero'
 export const metadata: Metadata = {
   title: '厚木市で設備工事スタッフを募集',
   description:
-    '神奈川県厚木市の設備工事求人。厚木の電気工事・エアコン工事求人で未経験歓迎。宝宮設備は厚木市妻田南に拠点を置く設備工事会社です。',
+    '神奈川県厚木市の設備工事求人。厚木の電気工事・エアコン工事求人で未経験歓迎。宝宮設備は厚木市温水西に拠点を置く設備工事会社です。',
   keywords: ['厚木 設備工事 求人', '厚木 電気工事 求人', '厚木 エアコン工事 求人', '厚木市 現場仕事 求人'],
 }
 
@@ -30,7 +30,7 @@ export default function AreaAtsugi() {
               厚木市の設備工事求人
             </h2>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
-              株式会社宝宮設備は、神奈川県厚木市妻田南2丁目7-21に本社を構える設備工事会社です。
+              株式会社宝宮設備は、神奈川県厚木市温水西1-4-39に本社を構える設備工事会社です。
               厚木市を拠点として、エアコン工事・給湯器交換・電気工事スタッフの求人を行っています。
             </p>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
@@ -48,7 +48,7 @@ export default function AreaAtsugi() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               {[
                 { label: '会社名', value: '株式会社宝宮設備' },
-                { label: '所在地', value: '神奈川県厚木市妻田南2丁目7-21' },
+                { label: '所在地', value: '神奈川県厚木市温水西1-4-39' },
                 { label: '電話番号', value: '046-205-4558' },
                 { label: '営業時間', value: '9:00〜18:00' },
                 { label: '事業内容', value: 'エアコン工事・給湯器交換・電気工事' },

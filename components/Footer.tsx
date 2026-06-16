@@ -48,7 +48,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-1.5 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              <p>神奈川県厚木市妻田南2丁目7-21</p>
+              <p>神奈川県厚木市温水西1-4-39</p>
               <p className="mt-4">
                 <a
                   href="tel:046-205-4558"
