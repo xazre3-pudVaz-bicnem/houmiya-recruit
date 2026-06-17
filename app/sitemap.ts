@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { columns } from '@/data/columns'
 import { areas } from '@/data/areas'
 import { jobs } from '@/data/jobs'
+import { knowledge } from '@/data/knowledge'
 
 const BASE_URL = 'https://www.houmiya-recruit.com'
 
@@ -27,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/area-kanagawa`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/area-atsugi`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/entry`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE_URL}/knowledge`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
   ]
 
   const columnPages: MetadataRoute.Sitemap = columns.map((col) => ({
@@ -53,5 +55,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ]
 
-  return [...staticPages, ...columnPages, ...areaPages, ...jobsPages]
+  const knowledgePages: MetadataRoute.Sitemap = knowledge.map((k) => ({
+    url: `${BASE_URL}/knowledge/${k.slug}`,
+    lastModified: new Date(k.publishedAt).toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...columnPages, ...areaPages, ...jobsPages, ...knowledgePages]
 }

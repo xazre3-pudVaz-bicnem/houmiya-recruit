@@ -11,6 +11,7 @@ const footerLinks = [
   { href: '/jobs',              label: '職種別求人' },
   { href: '/faq',               label: 'よくある質問' },
   { href: '/column',            label: '求人コラム' },
+  { href: '/knowledge',         label: '転職ナレッジ' },
   { href: '/area',              label: '地域別求人' },
   { href: '/blog',              label: '採用ブログ' },
   { href: '/staff',             label: 'スタッフ紹介' },
