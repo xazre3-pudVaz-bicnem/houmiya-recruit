@@ -41,6 +41,57 @@ export const metadata: Metadata = {
   },
 }
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['Organization', 'LocalBusiness'],
+  name: '株式会社宝宮設備',
+  alternateName: 'ほうみや設備',
+  url: 'https://www.houmiya-recruit.com',
+  logo: 'https://www.houmiya-recruit.com/images/logo.png',
+  image: 'https://www.houmiya-recruit.com/images/logo.png',
+  description:
+    '神奈川県厚木市に本社を置く設備工事会社。エアコン工事・給湯器交換・電気工事を神奈川県全域で手がける。未経験歓迎・資格取得支援・残業なし。',
+  telephone: '046-205-4558',
+  email: 'homiya@houmiyasetubi.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '温水西1-4-39',
+    addressLocality: '厚木市',
+    addressRegion: '神奈川県',
+    postalCode: '243-0036',
+    addressCountry: 'JP',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 35.4519,
+    longitude: 139.3406,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '08:30',
+    closes: '17:00',
+  },
+  areaServed: {
+    '@type': 'State',
+    name: '神奈川県',
+  },
+  sameAs: ['https://www.houmiya-recruit.com'],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: '株式会社宝宮設備 採用サイト',
+  url: 'https://www.houmiya-recruit.com',
+  description: '神奈川県厚木市の設備工事会社・宝宮設備の採用サイト。エアコン工事・給湯器交換・電気工事スタッフ募集中。',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://www.houmiya-recruit.com/column?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -49,6 +100,14 @@ export default function RootLayout({
   return (
     <html lang="ja" className={notoSansJP.className}>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <SmoothScrollProvider>
           <CustomCursor />
           <Header />

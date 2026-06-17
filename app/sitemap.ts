@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { columns } from '@/data/columns'
 import { areas } from '@/data/areas'
+import { jobs } from '@/data/jobs'
 
 const BASE_URL = 'https://www.houmiya-recruit.com'
 
@@ -42,5 +43,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...columnPages, ...areaPages]
+  const jobsPages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/jobs`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
+    ...jobs.map((job) => ({
+      url: `${BASE_URL}/jobs/${job.type}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+  ]
+
+  return [...staticPages, ...columnPages, ...areaPages, ...jobsPages]
 }

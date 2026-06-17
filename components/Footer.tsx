@@ -8,6 +8,7 @@ const footerLinks = [
   { href: '/electrical-work',   label: '電気工事求人' },
   { href: '/beginner',          label: '未経験の方へ' },
   { href: '/welfare',           label: '福利厚生' },
+  { href: '/jobs',              label: '職種別求人' },
   { href: '/faq',               label: 'よくある質問' },
   { href: '/column',            label: '求人コラム' },
   { href: '/area',              label: '地域別求人' },
