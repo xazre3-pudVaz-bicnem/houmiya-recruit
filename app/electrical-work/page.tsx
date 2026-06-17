@@ -68,10 +68,34 @@ const breadcrumbSchema = {
   ],
 }
 
+const faqItems = [
+  { q: '電気の知識がゼロでも応募できますか？', a: 'はい。宝宮設備では電気の知識がない状態での入社を前提にしています。入社後に先輩指導のもとで基礎から覚えます。第二種電気工事士の勉強が、現場の理解を深める近道になります。' },
+  { q: '第二種電気工事士は入社前に必要ですか？', a: '入社前に取得しておく必要はありません。入社後に受験費用・テキスト代を会社が全額負担してサポートします。資格なしでも補助作業から始めてもらいます。' },
+  { q: '電気工事は感電などの危険がありますか？', a: '作業前のブレーカー切断・検電器での通電確認など、安全手順を徹底しています。手順を守れば安全に作業できます。入社後に安全確認のやり方を先輩から丁寧に教わります。' },
+  { q: '第二種電気工事士の試験は難しいですか？', a: '国家資格の中では難易度が低い部類です。筆記試験（択一式）の合格率は60〜70%で、過去問を3〜4ヶ月勉強すれば合格できるレベルです。' },
+  { q: '電気工事士を取得したら給与は上がりますか？', a: 'はい。資格取得は昇給の対象です。電気工事士を取得すると担当できる作業が広がり、それに応じた評価がつきます。' },
+  { q: 'エアコン工事との兼務になりますか？', a: '宝宮設備ではエアコン工事・給湯器交換・電気工事の3職種を担当します。電気工事士の資格はエアコン工事の電気接続でも活きるため、担当現場が増えることになります。' },
+  { q: '1日の作業件数はどのくらいですか？', a: '作業内容によって変わります。コンセント交換・照明取付などの軽作業は1日3〜5件、分電盤工事・回路新設などの大きな作業は1〜2件が目安です。' },
+  { q: '車は必要ですか？', a: '会社の車両（AT限定でも対応可）を使います。マイカーは不要で、燃料代も会社が負担します。' },
+  { q: '資格取得費用は本当に全額会社負担ですか？', a: 'はい。受験費用・テキスト代・技能試験の練習材料費も含めて会社が全額負担します。自己負担はありません。' },
+  { q: '残業はありますか？', a: '宝宮設備では残業なしを方針としています。8:30〜17:00の時間内に作業が終わるようにスケジュールを組みます。' },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
 export default function ElectricalWork() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PageHero
@@ -261,6 +285,23 @@ export default function ElectricalWork() {
             </table>
           </div>
 
+          {/* FAQ */}
+          <div className="mb-12">
+            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">よくある質問（電気工事求人）</h2>
+            <div className="space-y-4">
+              {faqItems.map((item, i) => (
+                <div key={i} className="border border-gray-200">
+                  <div className="bg-gray-50 px-5 py-3.5 border-b border-gray-200">
+                    <p className="text-sm font-bold text-navy flex items-start gap-2"><span className="font-black text-orange-500">Q.</span>{item.q}</p>
+                  </div>
+                  <div className="px-5 py-4">
+                    <p className="text-sm text-gray-600 leading-relaxed flex items-start gap-2"><span className="font-black text-navy flex-shrink-0">A.</span>{item.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="bg-orange-50 border border-orange-100 p-6 sm:p-8 mb-10">
             <p className="text-sm font-black text-navy mb-2">宝宮設備では、電気工事に挑戦したい方を募集しています</p>
             <p className="text-xs text-gray-600 leading-relaxed mb-5">資格なし・未経験でも大丈夫。第二種電気工事士の取得費用は全額会社負担です。神奈川県で電気工事のプロを目指しませんか。</p>
@@ -279,6 +320,9 @@ export default function ElectricalWork() {
                 { href: '/welfare', label: '福利厚生' },
                 { href: '/faq', label: 'よくある質問' },
                 { href: '/jobs/electrical', label: '職種別求人詳細' },
+                { href: '/knowledge/denkikoujishi-shikaku', label: '第二種電気工事士とは' },
+                { href: '/knowledge/denkikouji-shigoto', label: '電気工事の仕事内容' },
+                { href: '/knowledge/shikaku-shien-setsubi-kouji', label: '資格取得支援の詳細' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">{link.label} →</Link>
               ))}

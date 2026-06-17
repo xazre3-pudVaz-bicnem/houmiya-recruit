@@ -68,10 +68,34 @@ const breadcrumbSchema = {
   ],
 }
 
+const faqItems = [
+  { q: '給湯器もガスも水道もわかりません。', a: '宝宮設備のスタッフの大半は、入社前に全く知識がない状態でした。まず先輩の作業を見て全体の流れを覚え、部分的な作業から担当します。給湯器の種類・配管の名前は、現場を繰り返すうちに自然に覚えます。' },
+  { q: 'ガスの工事は危ないですか？', a: 'ガスを扱う作業は確かに注意が必要ですが、正しい手順と安全確認を徹底すれば安全に作業できます。最初は先輩が元栓の開閉・ガス漏れ確認を行い、その方法を見ながら学びます。' },
+  { q: '給湯器交換だけでなく他の工事もしますか？', a: '宝宮設備では給湯器交換だけでなく、エアコン工事・電気工事も担当します。給湯器交換で培った配管・電気の基礎知識は、他の工事にもそのまま活かせます。' },
+  { q: '重い給湯器を持つのが不安です。', a: '給湯器は機種によって20〜80kg程度の重さがあります。重い機器の搬入は2人で行います。持ち方・運び方のコツを先輩から教わりますので、最初から無理に一人でやる必要はありません。' },
+  { q: '給湯器交換の資格は入社前に必要ですか？', a: '入社時は普通自動車免許（AT限定可）のみ必要です。簡易内管施工士・液化石油ガス設備士などは入社後に取得を目指します。資格取得費用は全額会社負担です。' },
+  { q: '1件あたりの作業時間はどのくらいですか？', a: '同機種交換（配管・ガス接続位置が同じ場合）は2〜3時間が目安です。配管経路の変更・複数設備の移設がある場合は4〜6時間になることもあります。' },
+  { q: '冬は特に忙しいですか？', a: 'はい、冬は給湯器が急に壊れるケースが増えるため、仕事量が増えます。ただし宝宮設備では残業なしの方針を維持しており、1日の件数を調整して対応しています。' },
+  { q: 'ガス管の種類によって作業が変わりますか？', a: '都市ガスとプロパンガス（LPG）では配管・部品が異なります。入社後に両方の知識を覚えます。神奈川県内はエリアによって両方の現場があります。' },
+  { q: '給湯器の運搬は腰に負担がかかりますか？', a: '重い機器の運搬は2人体制を基本としています。適切な姿勢と道具（台車など）を使うことで腰への負担を軽減します。' },
+  { q: '残業はありますか？', a: '宝宮設備では残業なしを方針としています。8:30〜17:00で1日の作業が終わるようにスケジュールを組んでいます。' },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
 export default function WaterHeaterWork() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PageHero
@@ -190,16 +214,11 @@ export default function WaterHeaterWork() {
             </p>
           </div>
 
-          {/* Worries */}
+          {/* FAQ */}
           <div className="mb-12">
-            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">応募前によくある不安</h2>
+            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">よくある質問（給湯器交換求人）</h2>
             <div className="space-y-4">
-              {[
-                { q: '給湯器もガスも水道もわかりません。', a: '宝宮設備のスタッフの大半は、入社前に全く知識がない状態でした。まず先輩の作業を見て全体の流れを覚え、部分的な作業から担当します。給湯器の種類・配管の名前は、現場を繰り返すうちに自然に覚えます。' },
-                { q: 'ガスの工事は危ないですか？', a: 'ガスを扱う作業は確かに注意が必要ですが、正しい手順と安全確認を徹底すれば安全に作業できます。最初は先輩が元栓の開閉・ガス漏れ確認を行い、その方法を見ながら学びます。' },
-                { q: '給湯器交換だけでなく他の工事もしますか？', a: '宝宮設備では給湯器交換だけでなく、エアコン工事・電気工事も担当します。給湯器交換で培った配管・電気の基礎知識は、他の工事にもそのまま活かせます。' },
-                { q: '重い給湯器を持つのが不安です。', a: '給湯器は機種によって20〜80kg程度の重さがあります。重い機器の搬入は2人で行います。持ち方・運び方のコツを先輩から教わりますので、最初から無理に一人でやる必要はありません。' },
-              ].map((item, i) => (
+              {faqItems.map((item, i) => (
                 <div key={i} className="border border-gray-200">
                   <div className="bg-gray-50 px-5 py-3.5 border-b border-gray-200">
                     <p className="text-sm font-bold text-navy flex items-start gap-2"><span className="font-black text-orange-500">Q.</span>{item.q}</p>
@@ -247,6 +266,8 @@ export default function WaterHeaterWork() {
                 { href: '/welfare', label: '福利厚生' },
                 { href: '/faq', label: 'よくある質問' },
                 { href: '/jobs/water-heater', label: '職種別求人詳細' },
+                { href: '/knowledge/kyutoki-koukan-shigoto', label: '給湯器交換の仕事内容' },
+                { href: '/knowledge/setsubi-kouji-mikeiken', label: '設備工事は未経験でも始められる？' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">{link.label} →</Link>
               ))}

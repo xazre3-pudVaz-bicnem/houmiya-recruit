@@ -68,11 +68,35 @@ const breadcrumbSchema = {
   ],
 }
 
+const faqItems = [
+  { q: 'エアコンのことを何も知らなくて大丈夫ですか？', a: '大丈夫です。宝宮設備のスタッフの多くがエアコンの仕組みを知らない状態で入社しています。現場で繰り返し作業するうちに自然と理解できるようになります。最初の1〜2ヶ月は先輩と同行して工具と手順を覚えることに集中します。' },
+  { q: 'エアコン工事の資格は入社前に必要ですか？', a: '入社時は不要です。普通自動車免許（AT限定可）のみ持っていれば応募できます。入社後に冷媒取扱技術者・第二種電気工事士の取得を目指します。取得費用は会社が全額負担します。' },
+  { q: '夏の暑い時期の作業が心配です。', a: '屋外作業・非空調環境での作業があるため、夏は体力的にきつい日があります。こまめな水分補給・休憩を取りながら進めます。体が慣れてくる2〜3ヶ月で感覚が変わってきます。' },
+  { q: '高所作業は怖くないですか？', a: 'はしごや脚立での高所作業があります。最初は低い場所から始め、慣れながら高い場所へとステップアップします。安全帯・ヘルメットなど適切な安全装備を使用します。' },
+  { q: '女性でも応募できますか？', a: '応募いただけます。体力的な作業があるため、重い機器の搬入は2人で行うなどの対応をしています。実際に女性スタッフが活躍している現場もあります。' },
+  { q: '1日に何件の現場を担当しますか？', a: '通常は1日2〜4件が目安です。夏の繁忙期は5件以上になることもありますが、残業なしの方針のため、1日の上限は調整されます。' },
+  { q: '車両はどのような車ですか？自分で用意しますか？', a: '会社の軽バン・ハイエースを使います。マイカーは不要で、燃料代も会社負担です。AT限定免許でも対応できる車両を使っています。' },
+  { q: '試用期間はありますか？その間の給与は？', a: '試用期間があります（詳細は面接時にご確認ください）。試用期間中も本採用と同条件の月給が支給されます。' },
+  { q: '冷媒取扱技術者の資格はどのくらいで取れますか？', a: '1日の講習受講＋修了試験で取得できます。難易度は高くなく、講習内容を理解していれば合格できます。入社後6ヶ月以内に取得するスタッフが多いです。' },
+  { q: '残業は本当にないですか？', a: '宝宮設備では残業なしを方針としています。夏の繁忙期も1日の件数を調整して17:00に終わるように運用しています。緊急対応が発生した場合はその限りではありませんが、恒常的な残業はありません。' },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
 export default function AirconWork() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <PageHero
         en="Air Conditioning Work"
@@ -235,16 +259,11 @@ export default function AirconWork() {
             </p>
           </div>
 
-          {/* Pre-application worries */}
+          {/* FAQ */}
           <div className="mb-12">
-            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">応募前によくある不安</h2>
+            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">よくある質問（エアコン工事求人）</h2>
             <div className="space-y-4">
-              {[
-                { q: 'エアコンのことを何も知らなくて大丈夫ですか？', a: '大丈夫です。宝宮設備のスタッフの多くがエアコンの仕組みを知らない状態で入社しています。現場で繰り返し作業するうちに自然と理解できるようになります。' },
-                { q: '夏の暑い時期の作業が心配です。', a: '屋外作業・非空調環境での作業があるため、夏は体力的にきつい日があります。こまめな水分補給・休憩を取りながら進めます。体が慣れてくる2〜3ヶ月で感覚が変わってきます。' },
-                { q: '高所作業は怖くないですか？', a: 'はしごや脚立での高所作業があります。最初は低い場所から始め、慣れながら高い場所へとステップアップします。安全帯・ヘルメットなど適切な安全装備を使用します。' },
-                { q: 'エアコン工事の資格は必要ですか？', a: '入社時は不要です。入社後に「冷媒取扱技術者（第一種・第二種）」の取得を目指します。取得費用は会社が全額負担します。' },
-              ].map((item, i) => (
+              {faqItems.map((item, i) => (
                 <div key={i} className="border border-gray-200">
                   <div className="bg-gray-50 px-5 py-3.5 border-b border-gray-200">
                     <p className="text-sm font-bold text-navy flex items-start gap-2"><span className="font-black text-orange-500">Q.</span>{item.q}</p>
@@ -293,6 +312,9 @@ export default function AirconWork() {
                 { href: '/welfare', label: '福利厚生' },
                 { href: '/faq', label: 'よくある質問' },
                 { href: '/jobs/aircon', label: '職種別求人詳細' },
+                { href: '/knowledge/aircon-kouji-shigoto', label: 'エアコン工事の仕事内容' },
+                { href: '/knowledge/aircon-kouji-shikaku', label: 'エアコン工事の資格' },
+                { href: '/knowledge/setsubi-kouji-mikeiken', label: '設備工事は未経験でも始められる？' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">{link.label} →</Link>
               ))}
