@@ -93,9 +93,9 @@ export default function AreaAtsugi() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { title: '厚木 エアコン工事', link: '/aircon-work', desc: '厚木・神奈川県全域のエアコン取付・交換工事。未経験歓迎。' },
-                { title: '厚木 給湯器交換', link: '/water-heater-work', desc: '厚木・神奈川県の給湯器撤去・新規取付工事。住宅設備の求人。' },
-                { title: '厚木 電気工事', link: '/electrical-work', desc: '厚木・神奈川県の電気工事。資格取得支援あり・未経験可。' },
+                { title: '厚木 エアコン工事', link: '/jobs/aircon', desc: '厚木・神奈川県全域のエアコン取付・交換工事。未経験歓迎。' },
+                { title: '厚木 給湯器交換', link: '/jobs/water-heater', desc: '厚木・神奈川県の給湯器撤去・新規取付工事。住宅設備の求人。' },
+                { title: '厚木 電気工事', link: '/jobs/electrical', desc: '厚木・神奈川県の電気工事。資格取得支援あり・未経験可。' },
               ].map((item) => (
                 <div key={item.title} className="border border-gray-200 p-5">
                   <h3 className="text-sm font-bold text-navy mb-2">{item.title}</h3>

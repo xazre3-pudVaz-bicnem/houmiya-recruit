@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.houmiya-recruit.com/aircon-work' },
+  alternates: { canonical: 'https://www.houmiya-recruit.com/jobs/aircon' },
+  robots: { index: false, follow: true },
 }
 
 const jobPostingSchema = {

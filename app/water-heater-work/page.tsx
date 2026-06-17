@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.houmiya-recruit.com/water-heater-work' },
+  alternates: { canonical: 'https://www.houmiya-recruit.com/jobs/water-heater' },
+  robots: { index: false, follow: true },
 }
 
 const jobPostingSchema = {

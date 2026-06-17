@@ -35,14 +35,14 @@ const breadcrumbSchema = {
 }
 
 const internalLinks = [
-  { href: '/aircon-work', label: 'エアコン工事の詳細' },
-  { href: '/water-heater-work', label: '給湯器交換の詳細' },
-  { href: '/electrical-work', label: '電気工事の詳細' },
+  { href: '/jobs/aircon', label: 'エアコン工事スタッフ求人詳細' },
+  { href: '/jobs/water-heater', label: '給湯器交換スタッフ求人詳細' },
+  { href: '/jobs/electrical', label: '電気工事スタッフ求人詳細' },
+  { href: '/jobs/setsubi', label: '設備工事総合スタッフ求人' },
   { href: '/beginner', label: '未経験の方へ' },
   { href: '/welfare', label: '福利厚生' },
-  { href: '/day', label: '1日の流れ' },
+  { href: '/area', label: '地域別求人' },
   { href: '/recruit', label: '募集要項' },
-  { href: '/faq', label: 'よくある質問' },
   { href: '/entry', label: '応募フォーム' },
 ]
 
@@ -99,7 +99,7 @@ export default function Work() {
                 <span key={t} className="tag-badge text-xs">{t}</span>
               ))}
             </div>
-            <Link href="/aircon-work" className="link-arrow text-sm">エアコン工事の詳細を見る <span>→</span></Link>
+            <Link href="/jobs/aircon" className="link-arrow text-sm">エアコン工事スタッフ求人を見る <span>→</span></Link>
           </div>
         </div>
 
@@ -123,7 +123,7 @@ export default function Work() {
                 <span key={t} className="tag-badge text-xs">{t}</span>
               ))}
             </div>
-            <Link href="/water-heater-work" className="link-arrow text-sm">給湯器交換の詳細を見る <span>→</span></Link>
+            <Link href="/jobs/water-heater" className="link-arrow text-sm">給湯器交換スタッフ求人を見る <span>→</span></Link>
           </div>
         </div>
 
@@ -147,7 +147,7 @@ export default function Work() {
                 <span key={t} className="tag-badge text-xs">{t}</span>
               ))}
             </div>
-            <Link href="/electrical-work" className="link-arrow text-sm">電気工事の詳細を見る <span>→</span></Link>
+            <Link href="/jobs/electrical" className="link-arrow text-sm">電気工事スタッフ求人を見る <span>→</span></Link>
           </div>
         </div>
       </div>

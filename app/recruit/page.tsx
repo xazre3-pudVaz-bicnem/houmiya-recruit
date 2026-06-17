@@ -367,13 +367,13 @@ export default function Recruit() {
             <h3 className="text-sm font-bold text-navy tracking-wide mb-4">詳細ページ</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
-                { href: '/aircon-work', label: 'エアコン工事スタッフ求人' },
-                { href: '/water-heater-work', label: '給湯器交換スタッフ求人' },
-                { href: '/electrical-work', label: '電気工事スタッフ求人' },
+                { href: '/jobs/aircon', label: 'エアコン工事スタッフ求人' },
+                { href: '/jobs/water-heater', label: '給湯器交換スタッフ求人' },
+                { href: '/jobs/electrical', label: '電気工事スタッフ求人' },
+                { href: '/jobs/setsubi', label: '設備工事総合スタッフ求人' },
                 { href: '/beginner', label: '未経験の方へ' },
                 { href: '/welfare', label: '福利厚生について' },
-                { href: '/day', label: '1日の流れ' },
-                { href: '/staff', label: 'スタッフ紹介' },
+                { href: '/area', label: '地域別求人' },
                 { href: '/faq', label: 'よくある質問' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="link-arrow text-sm">

@@ -22,7 +22,8 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     type: 'website',
   },
-  alternates: { canonical: 'https://www.houmiya-recruit.com/electrical-work' },
+  alternates: { canonical: 'https://www.houmiya-recruit.com/jobs/electrical' },
+  robots: { index: false, follow: true },
 }
 
 const jobPostingSchema = {

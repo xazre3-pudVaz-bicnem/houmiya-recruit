@@ -3,9 +3,9 @@ import Link from 'next/link'
 const footerLinks = [
   { href: '/recruit',           label: '募集要項' },
   { href: '/work',              label: '仕事内容' },
-  { href: '/aircon-work',       label: 'エアコン工事求人' },
-  { href: '/water-heater-work', label: '給湯器交換求人' },
-  { href: '/electrical-work',   label: '電気工事求人' },
+  { href: '/jobs/aircon',       label: 'エアコン工事求人' },
+  { href: '/jobs/water-heater', label: '給湯器交換求人' },
+  { href: '/jobs/electrical',   label: '電気工事求人' },
   { href: '/beginner',          label: '未経験の方へ' },
   { href: '/welfare',           label: '福利厚生' },
   { href: '/jobs',              label: '職種別求人' },

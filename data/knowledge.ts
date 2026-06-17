@@ -368,7 +368,7 @@ export const knowledge: KnowledgeArticle[] = [
       '第二種電気工事士は年2回受験でき、独学可能な国家資格です。宝宮設備では受験費用を全額負担し、取得後は昇給の対象になります。設備工事スタッフには取得を強くすすめています。',
     relatedSlugs: ['aircon-kouji-shikaku', 'shikaku-shien-setsubi-kouji', 'denkikouji-shigoto'],
     relatedPages: [
-      { href: '/electrical-work', label: '電気工事求人' },
+      { href: '/jobs/electrical', label: '電気工事スタッフ求人' },
       { href: '/welfare', label: '資格取得支援' },
       { href: '/entry', label: '応募フォーム' },
     ],
@@ -473,7 +473,7 @@ export const knowledge: KnowledgeArticle[] = [
       'エアコン工事は資格なしで始められる作業があります。冷媒取扱・電気接続には専門資格が必要ですが、宝宮設備では入社後に費用負担なしで取得できます。',
     relatedSlugs: ['denkikoujishi-shikaku', 'shikaku-shien-setsubi-kouji', 'aircon-kouji-shigoto'],
     relatedPages: [
-      { href: '/aircon-work', label: 'エアコン工事求人' },
+      { href: '/jobs/aircon', label: 'エアコン工事スタッフ求人' },
       { href: '/welfare', label: '資格取得支援' },
       { href: '/entry', label: '応募フォーム' },
     ],
@@ -632,7 +632,7 @@ export const knowledge: KnowledgeArticle[] = [
       'エアコン工事は穴あけ・配管・電気接続・試運転まで一連の工程があります。夏は繁忙期ですが残業なしを維持。道具はすべて会社支給です。',
     relatedSlugs: ['setsubi-kouji-shigoto', 'aircon-kouji-shikaku', 'jutaku-setsubi-shigoto'],
     relatedPages: [
-      { href: '/aircon-work', label: 'エアコン工事求人' },
+      { href: '/jobs/aircon', label: 'エアコン工事スタッフ求人' },
       { href: '/work', label: '仕事内容' },
       { href: '/entry', label: '応募フォーム' },
     ],
@@ -685,7 +685,7 @@ export const knowledge: KnowledgeArticle[] = [
       '給湯器交換はガス・水道・電気の3分野スキルが必要ですが、先輩と一緒に手順を覚えれば対応できます。インフラ直結の仕事なので達成感が大きく、冬は特に需要が高まります。',
     relatedSlugs: ['setsubi-kouji-shigoto', 'jutaku-setsubi-shigoto', 'setsubi-kouji-shouraisei'],
     relatedPages: [
-      { href: '/water-heater-work', label: '給湯器交換求人' },
+      { href: '/jobs/water-heater', label: '給湯器交換スタッフ求人' },
       { href: '/work', label: '仕事内容' },
       { href: '/entry', label: '応募フォーム' },
     ],
@@ -738,7 +738,7 @@ export const knowledge: KnowledgeArticle[] = [
       '住宅電気工事は資格の有無で担当できる作業が変わります。電気工事士取得後は独立した作業が増え、エアコン工事の効率も上がります。安全手順の習得が最初の重要ステップです。',
     relatedSlugs: ['denkikoujishi-shikaku', 'setsubi-kouji-shigoto', 'aircon-kouji-shigoto'],
     relatedPages: [
-      { href: '/electrical-work', label: '電気工事求人' },
+      { href: '/jobs/electrical', label: '電気工事スタッフ求人' },
       { href: '/work', label: '仕事内容' },
       { href: '/entry', label: '応募フォーム' },
     ],
@@ -792,7 +792,7 @@ export const knowledge: KnowledgeArticle[] = [
     relatedSlugs: ['setsubi-kouji-shigoto', 'aircon-kouji-shigoto', 'kyutoki-koukan-shigoto'],
     relatedPages: [
       { href: '/work', label: '仕事内容' },
-      { href: '/aircon-work', label: 'エアコン工事求人' },
+      { href: '/jobs/aircon', label: 'エアコン工事スタッフ求人' },
       { href: '/entry', label: '応募フォーム' },
     ],
   },

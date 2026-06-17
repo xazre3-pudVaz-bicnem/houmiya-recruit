@@ -8,13 +8,14 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
 const SLOTS = [
   {
-    time: '08:00',
+    time: '08:30',
     period: '午前',
     title: '現場へ直行',
     body: '会社に寄らず直接現場へ。会社車両で神奈川県内の現場に向かう。道具・資材は前日に準備済み。',
     accent: '#0ea5e9',
     bg: 'rgba(240,249,255,0.88)',
     photo: '/images/work-morning-van.jpg',
+    photoAlt: '8:30に会社車両で現場へ直行する設備工事スタッフ',
   },
   {
     time: '12:00',
@@ -24,6 +25,7 @@ const SLOTS = [
     accent: '#f97316',
     bg: 'rgba(255,247,237,0.88)',
     photo: '/images/lunch-bento.jpg',
+    photoAlt: '設備工事スタッフの昼食（昼食補助制度あり）',
   },
   {
     time: '13:00',
@@ -33,15 +35,17 @@ const SLOTS = [
     accent: '#10b981',
     bg: 'rgba(240,253,244,0.88)',
     photo: '/images/ceiling-work.jpg',
+    photoAlt: '設備工事の仕上げ作業と試運転確認',
   },
   {
-    time: '18:00',
-    period: '帰社',
+    time: '17:00',
+    period: '終業',
     title: '終業・直帰',
-    body: '残業少なめ。現場から直接帰宅できる日も多い。オンとオフのメリハリがある生活を実現。',
+    body: '残業なし。17:00に終業し、現場から直接帰宅。仕事後の時間を自分のために使える生活。',
     accent: '#8b5cf6',
     bg: 'rgba(250,245,255,0.88)',
     photo: '/images/tool-shelf.jpg',
+    photoAlt: '17:00終業・残業なしの設備工事求人',
   },
 ]
 
@@ -54,7 +58,7 @@ function SlotBlock({ slot }: { slot: typeof SLOTS[0] }) {
       <div className="absolute inset-0">
         <Image
           src={slot.photo}
-          alt=""
+          alt={slot.photoAlt}
           fill
           className="object-cover"
           sizes="(min-width: 640px) 50vw, 100vw"
