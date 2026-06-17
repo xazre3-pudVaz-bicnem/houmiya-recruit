@@ -35,10 +35,34 @@ const breadcrumbSchema = {
   ],
 }
 
+const faqItems = [
+  { q: '設備工事の経験がゼロでも本当に大丈夫ですか？', a: 'はい、大丈夫です。宝宮設備で入社するスタッフの半数以上が設備工事未経験です。入社後は先輩との同行から始まり、段階的に技術を覚えていきます。' },
+  { q: '入社後にすぐ一人で現場に行かされますか？', a: 'いいえ。入社後しばらくは必ず先輩スタッフと2人体制で動きます。一人で担当できるようになるまで、焦らずサポートします。' },
+  { q: '独り立ちするまでにどのくらいかかりますか？', a: '個人差がありますが、3〜6ヶ月を目安にしています。最初に比較的シンプルな作業から始め、担当できる作業の種類を少しずつ増やしていきます。' },
+  { q: '入社時に必要な資格はありますか？', a: '普通自動車免許（AT限定可）のみ必要です。設備工事の専門資格（第二種電気工事士・冷媒取扱技術者など）は入社後に取得します。取得費用は全額会社負担です。' },
+  { q: '何歳まで応募できますか？', a: '18歳〜35歳を対象に若手を積極採用しています。20代後半・30代前半の未経験転職者も多く入社しています。' },
+  { q: '前職は全く別の業種でしたが大丈夫ですか？', a: '問題ありません。製造業・運送業・飲食業・販売業など、全く異なる業種からの転職者が多く在籍しています。' },
+  { q: '体力に自信がありません。現場仕事は大丈夫ですか？', a: '体力的にきつい作業もありますが、日々の現場をこなすうちに自然に体が慣れます。重い機器の運搬は2人で行いますので、最初から無理をする必要はありません。' },
+  { q: '研修中の給与はどうなりますか？', a: '研修期間中も月給が発生します。試用期間の給与は本採用と同条件です（詳細は面接時に確認ください）。' },
+  { q: '資格取得の勉強時間はいつ作ればよいですか？', a: '宝宮設備では残業がないため、17:00以降に勉強時間を確保できます。試験前の時期には業務スケジュールの調整もしています。' },
+  { q: '先輩から丁寧に教えてもらえますか？', a: 'はい。宝宮設備では未経験者の育成を前提にした教え方をしています。「わからないことを聞きやすい雰囲気」を大切にしています。' },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
 export default function Beginner() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <PageHero
         en="For Beginners"
@@ -318,6 +342,23 @@ export default function Beginner() {
             </div>
           </div>
 
+          {/* FAQ */}
+          <div className="mb-12">
+            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">未経験の方からよくある質問</h2>
+            <div className="space-y-4">
+              {faqItems.map((item, i) => (
+                <div key={i} className="border border-gray-200">
+                  <div className="bg-gray-50 px-5 py-3.5 border-b border-gray-200">
+                    <p className="text-sm font-bold text-navy flex items-start gap-2"><span className="font-black text-orange-500">Q.</span>{item.q}</p>
+                  </div>
+                  <div className="px-5 py-4">
+                    <p className="text-sm text-gray-600 leading-relaxed flex items-start gap-2"><span className="font-black text-navy flex-shrink-0">A.</span>{item.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3">
             <Link href="/recruit" className="btn-outline text-sm px-6 py-3.5">募集要項を見る</Link>
             <Link href="/entry" className="btn-primary text-sm px-6 py-3.5">応募フォームへ</Link>
@@ -333,6 +374,9 @@ export default function Beginner() {
                 { href: '/faq', label: 'よくある質問' },
                 { href: '/jobs', label: '職種別求人' },
                 { href: '/column', label: '求人コラム' },
+                { href: '/knowledge/setsubi-kouji-mikeiken', label: '未経験から始める流れ' },
+                { href: '/knowledge/shikaku-nashi-setsubi-kouji', label: '資格なしでも大丈夫？' },
+                { href: '/knowledge/tenishoku-te-ni-shoku', label: '転職で手に職をつける' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">{link.label} →</Link>
               ))}

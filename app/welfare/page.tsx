@@ -34,10 +34,34 @@ const breadcrumbSchema = {
   ],
 }
 
+const faqItems = [
+  { q: '社会保険はどのような内容ですか？', a: '健康保険・厚生年金・雇用保険・労災保険の4つが完備されています。入社日から適用されます。' },
+  { q: '車両貸出はどのような車ですか？自分で燃料代を払いますか？', a: '軽バン・ハイエースなどのAT車を会社が用意します。燃料代・高速料金など現場移動に必要な費用は会社が全額負担します。マイカーは不要です。' },
+  { q: 'AT限定免許でも問題ありませんか？', a: '問題ありません。会社の社用車はAT車のため、AT限定免許で運転できます。' },
+  { q: '昼食補助はどのように使えますか？', a: '現場近くのコンビニ・弁当店・飲食店などで利用できます。詳細な金額・利用方法は入社時にご案内します。' },
+  { q: '資格取得の費用はどこまで会社が負担してくれますか？', a: '受験費用・テキスト代・技能試験練習セット・講習費を会社が全額負担します。自己負担はありません。' },
+  { q: '社宅相談とは具体的にどういうことですか？', a: '神奈川県外からの転職者などに対して、住居の手配・物件選びのサポートを行います。詳細は面接時に個別にご相談ください。' },
+  { q: '制服は自分で購入しますか？', a: '制服は会社が貸与します。購入の必要はありません。' },
+  { q: '有給休暇はいつから取得できますか？', a: '法定通り、入社6ヶ月後から取得できます。詳細は入社時にご確認ください。' },
+  { q: '賞与はいつ支給されますか？', a: '夏と冬の年2回、手当として支給されます。金額は経験・評価によって変わります。' },
+  { q: '資格を取得した後、給与に反映されますか？', a: 'はい。資格取得は昇給の評価対象です。第二種電気工事士・冷媒取扱技術者などを取得するたびに、担当できる作業が増え、月給が見直されます。' },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
 export default function Welfare() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <PageHero
         en="Welfare"
@@ -296,6 +320,23 @@ export default function Welfare() {
             </table>
           </div>
 
+          {/* FAQ */}
+          <div className="mb-12">
+            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">福利厚生についてよくある質問</h2>
+            <div className="space-y-4">
+              {faqItems.map((item, i) => (
+                <div key={i} className="border border-gray-200">
+                  <div className="bg-gray-50 px-5 py-3.5 border-b border-gray-200">
+                    <p className="text-sm font-bold text-navy flex items-start gap-2"><span className="font-black text-orange-500">Q.</span>{item.q}</p>
+                  </div>
+                  <div className="px-5 py-4">
+                    <p className="text-sm text-gray-600 leading-relaxed flex items-start gap-2"><span className="font-black text-navy flex-shrink-0">A.</span>{item.a}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
             <Link href="/recruit" className="btn-outline text-sm px-6 py-3.5">募集要項を見る</Link>
             <Link href="/entry" className="btn-primary text-sm px-6 py-3.5">応募フォームへ</Link>
@@ -311,6 +352,9 @@ export default function Welfare() {
                 { href: '/recruit', label: '募集要項' },
                 { href: '/faq', label: 'よくある質問' },
                 { href: '/entry', label: '応募フォーム' },
+                { href: '/knowledge/sharyo-kashidashi-kyujin', label: '車両貸出求人の詳細' },
+                { href: '/knowledge/shikaku-shien-setsubi-kouji', label: '資格取得支援の詳細' },
+                { href: '/knowledge/chushoku-hojo-kyujin', label: '昼食補助求人の詳細' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">{link.label} →</Link>
               ))}
