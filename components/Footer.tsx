@@ -7,13 +7,13 @@ const footerLinks = [
   { href: '/water-heater-work', label: '給湯器交換求人' },
   { href: '/electrical-work',   label: '電気工事求人' },
   { href: '/beginner',          label: '未経験の方へ' },
-  { href: '/staff',             label: 'スタッフ紹介' },
   { href: '/welfare',           label: '福利厚生' },
-  { href: '/day',               label: '1日の流れ' },
-  { href: '/gallery',           label: '現場ギャラリー' },
+  { href: '/faq',               label: 'よくある質問' },
+  { href: '/column',            label: '求人コラム' },
+  { href: '/area',              label: '地域別求人' },
   { href: '/blog',              label: '採用ブログ' },
-  { href: '/area-kanagawa',     label: '神奈川エリア' },
-  { href: '/area-atsugi',       label: '厚木エリア' },
+  { href: '/staff',             label: 'スタッフ紹介' },
+  { href: '/gallery',           label: '現場ギャラリー' },
   { href: '/entry',             label: '応募フォーム' },
 ]
 

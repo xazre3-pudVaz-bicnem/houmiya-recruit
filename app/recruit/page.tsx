@@ -11,9 +11,69 @@ export const metadata: Metadata = {
   keywords: ['神奈川 設備工事 求人', '厚木 設備工事 求人', '未経験 設備工事 求人', '設備工事スタッフ 募集'],
 }
 
+const jobPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'JobPosting',
+  title: '設備工事スタッフ（エアコン工事・給湯器交換・電気工事）',
+  description:
+    '神奈川県厚木市の設備工事会社・株式会社宝宮設備では、エアコン工事・給湯器交換・電気工事スタッフを募集しています。未経験歓迎、資格取得支援、残業なし、月給25万円〜。',
+  datePosted: '2025-01-01',
+  validThrough: '2025-12-31T23:59:59',
+  employmentType: 'FULL_TIME',
+  hiringOrganization: {
+    '@type': 'Organization',
+    name: '株式会社宝宮設備',
+    sameAs: 'https://www.houmiya-recruit.com',
+    logo: 'https://www.houmiya-recruit.com/images/logo.png',
+  },
+  jobLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '温水西1-4-39',
+      addressLocality: '厚木市',
+      addressRegion: '神奈川県',
+      postalCode: '243-0036',
+      addressCountry: 'JP',
+    },
+  },
+  baseSalary: {
+    '@type': 'MonetaryAmount',
+    currency: 'JPY',
+    value: {
+      '@type': 'QuantitativeValue',
+      minValue: 250000,
+      maxValue: 700000,
+      unitText: 'MONTH',
+    },
+  },
+  workHours: '8:30〜17:00（残業なし）',
+  jobBenefits: '社会保険完備、資格取得支援（会社負担）、車両貸出、昼食補助、制服貸与、交通費支給、社宅相談可',
+  qualifications: '未経験歓迎。普通自動車免許（AT限定可）があれば尚可。',
+  industry: '設備工事業',
+  occupationalCategory: '設備工事スタッフ',
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'トップ', item: 'https://www.houmiya-recruit.com/' },
+    { '@type': 'ListItem', position: 2, name: '募集要項', item: 'https://www.houmiya-recruit.com/recruit' },
+  ],
+}
+
 export default function Recruit() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <PageHero
         en="Recruit"
         title="募集要項"

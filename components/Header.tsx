@@ -9,7 +9,7 @@ const navLinks = [
   { href: '/work',     label: '仕事内容', en: 'Work' },
   { href: '/beginner', label: '未経験の方へ', en: 'Beginner' },
   { href: '/welfare',  label: '福利厚生', en: 'Welfare' },
-  { href: '/day',      label: '1日の流れ', en: 'Daily' },
+  { href: '/column',   label: 'コラム', en: 'Column' },
   { href: '/blog',     label: 'ブログ', en: 'Blog' },
 ]
 
