@@ -39,6 +39,7 @@ export default function JobPage({ params }: { params: { type: string } }) {
     datePosted: '2025-01-01',
     validThrough: '2026-12-31T23:59:59',
     employmentType: 'FULL_TIME',
+    directApply: true,
     hiringOrganization: {
       '@type': 'Organization',
       name: '株式会社宝宮設備',
@@ -56,11 +57,6 @@ export default function JobPage({ params }: { params: { type: string } }) {
         addressCountry: 'JP',
       },
     },
-    applicantLocationRequirements: {
-      '@type': 'Country',
-      name: 'JP',
-    },
-    jobLocationType: 'TELECOMMUTE',
     baseSalary: {
       '@type': 'MonetaryAmount',
       currency: 'JPY',
@@ -72,8 +68,8 @@ export default function JobPage({ params }: { params: { type: string } }) {
       },
     },
     workHours: '8:30〜17:00（残業なし）',
-    jobBenefits: '社会保険完備・資格取得支援（会社全額負担）・車両貸出・昼食補助・制服貸与・社宅相談可',
-    qualifications: '未経験歓迎。普通自動車免許（AT限定可）があれば尚可。',
+    jobBenefits: '社会保険完備・資格取得支援（会社全額負担）・車両貸出・昼食補助・制服貸与・社宅相談可・夏冬手当あり',
+    qualifications: '未経験可。普通自動車免許（AT限定可）。',
     industry: '設備工事業',
     occupationalCategory: job.jobTitle,
   }
@@ -88,10 +84,21 @@ export default function JobPage({ params }: { params: { type: string } }) {
     ],
   }
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: job.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
       <section className="bg-navy pt-16 pb-12">
@@ -111,12 +118,31 @@ export default function JobPage({ params }: { params: { type: string } }) {
         </div>
       </section>
 
+      {/* Key stats bar */}
+      <section className="bg-orange-500 py-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            {[
+              { label: '給与', value: '月25万〜70万円' },
+              { label: '勤務時間', value: '8:30〜17:00' },
+              { label: '残業', value: 'なし' },
+              { label: '経験', value: '未経験歓迎' },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-[10px] text-white/70 tracking-widest uppercase mb-0.5">{item.label}</p>
+                <p className="text-white font-black text-sm">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Main */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
           {/* Article sections */}
-          <div className="prose-sm max-w-none mb-14">
+          <div className="mb-14">
             {job.sections.map((section, i) => (
               <div key={i} className="mb-10">
                 <h2 className="text-lg sm:text-xl font-black text-navy mb-4 pb-3 border-b border-gray-200">
@@ -171,14 +197,45 @@ export default function JobPage({ params }: { params: { type: string } }) {
             </div>
           </div>
 
-          {/* Related columns */}
-          {job.relatedColumnSlugs.length > 0 && (
+          {/* FAQ section */}
+          {job.faq.length > 0 && (
             <div className="mb-12">
-              <h3 className="text-sm font-bold text-gray-400 tracking-widest mb-4">関連コラム</h3>
+              <h2 className="text-lg font-black text-navy tracking-tight mb-6 pb-3 border-b border-gray-200">
+                よくある質問（{job.jobTitle}求人）
+              </h2>
+              <div className="space-y-4">
+                {job.faq.map((item, i) => (
+                  <div key={i} className="border border-gray-200 bg-white">
+                    <div className="flex items-start gap-3 p-4 sm:p-5">
+                      <span className="flex-shrink-0 w-6 h-6 bg-orange-500 text-white text-xs font-black flex items-center justify-center mt-0.5">
+                        Q
+                      </span>
+                      <p className="text-sm font-bold text-navy leading-snug">{item.q}</p>
+                    </div>
+                    <div className="flex items-start gap-3 px-4 sm:px-5 pb-4 sm:pb-5 bg-gray-50">
+                      <span className="flex-shrink-0 w-6 h-6 bg-navy text-white text-xs font-black flex items-center justify-center mt-0.5">
+                        A
+                      </span>
+                      <p className="text-sm text-gray-700 leading-relaxed">{item.a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Related articles */}
+          {job.relatedLinks.length > 0 && (
+            <div className="mb-12">
+              <h3 className="text-sm font-bold text-gray-400 tracking-widest mb-4">関連記事・ページ</h3>
               <div className="flex flex-col gap-2">
-                {job.relatedColumnSlugs.map((slug) => (
-                  <Link key={slug} href={`/column/${slug}`} className="text-sm text-navy hover:text-orange-500 transition-colors underline-offset-2 hover:underline">
-                    /{slug} →
+                {job.relatedLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-navy hover:text-orange-500 transition-colors underline-offset-2 hover:underline"
+                  >
+                    {link.label} →
                   </Link>
                 ))}
               </div>
@@ -186,7 +243,7 @@ export default function JobPage({ params }: { params: { type: string } }) {
           )}
 
           {/* Other jobs */}
-          <div className="bg-gray-50 p-6">
+          <div className="bg-gray-50 p-6 mb-10">
             <h3 className="text-sm font-bold text-navy mb-4">その他の職種求人</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {jobs.filter((j) => j.type !== job.type).map((j) => (
@@ -201,16 +258,16 @@ export default function JobPage({ params }: { params: { type: string } }) {
             </div>
           </div>
 
-          {/* Page links */}
-          <div className="mt-10 pt-8 border-t border-gray-100">
+          {/* Internal links */}
+          <div className="pt-8 border-t border-gray-100">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
                 { href: '/recruit', label: '募集要項' },
-                { href: '/column', label: '求人コラム' },
                 { href: '/area', label: '地域別求人' },
-                { href: '/faq', label: 'よくある質問' },
                 { href: '/beginner', label: '未経験の方へ' },
                 { href: '/welfare', label: '福利厚生' },
+                { href: '/faq', label: 'よくある質問' },
+                { href: '/entry', label: 'エントリー' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">
                   {link.label} →

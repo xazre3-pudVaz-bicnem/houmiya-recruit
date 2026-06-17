@@ -45,6 +45,9 @@ const faqItems = [
   { q: '有給休暇はいつから取得できますか？', a: '法定通り、入社6ヶ月後から取得できます。詳細は入社時にご確認ください。' },
   { q: '賞与はいつ支給されますか？', a: '夏と冬の年2回、手当として支給されます。金額は経験・評価によって変わります。' },
   { q: '資格を取得した後、給与に反映されますか？', a: 'はい。資格取得は昇給の評価対象です。第二種電気工事士・冷媒取扱技術者などを取得するたびに、担当できる作業が増え、月給が見直されます。' },
+  { q: '神奈川県外に住んでいますが、社宅は具体的にどのエリアにありますか？', a: '厚木市および周辺エリアでの住居探しをサポートしています。具体的な物件・エリアは面接時にご相談ください。遠方からの転職者でも安心して入社できるよう支援します。' },
+  { q: '現場直行・直帰をした日は経費の精算はどうなりますか？', a: '高速道路代・燃料代はすべて会社負担です。スタッフが現場移動で個人負担することはありません。精算の手続きは月次でまとめて行います。' },
+  { q: '将来、独立や副業を考えていますが会社の規定はありますか？', a: '副業に関する規定は入社時にご確認ください。独立については、宝宮設備での経験・資格・人脈を活かして独立した先輩スタッフもいます。独立を目標に技術を積む方も歓迎します。' },
 ]
 
 const faqSchema = {
@@ -274,6 +277,59 @@ export default function Welfare() {
 
           </div>
 
+          {/* Why long-term work */}
+          <div className="border-t border-gray-200 py-10">
+            <div className="flex flex-col lg:flex-row lg:gap-16">
+              <div className="lg:w-1/3 mb-4 lg:mb-0">
+                <p className="text-xs tracking-widest text-gray-400 uppercase mb-1">Work-Life Balance</p>
+                <h2 className="text-lg font-black text-navy tracking-tight">長く働ける職場環境</h2>
+                <div className="line-blue mt-3" />
+              </div>
+              <div className="lg:w-2/3">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                  設備工事業界では「体力仕事のため若いうちしか続けられない」というイメージがありますが、宝宮設備では違います。残業なし・適切な業務量・チームサポートにより、ベテランスタッフが長期間にわたって活躍しています。
+                </p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  設備工事の技術は年齢と経験を重ねるほど精度が上がります。「体力より技術と判断力」で差がつく仕事のため、30代・40代以降も第一線で働き続けられます。資格と経験を積むことで、現場作業だけでなく後輩指導・工程管理など幅広い役割も担えます。
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    { label: '平均在籍期間', value: 'スタッフの平均在籍が長い職場' },
+                    { label: '残業ゼロ', value: '17:00終業を全繁忙期でも維持' },
+                    { label: '体への配慮', value: '重作業は2人体制で無理をさせない' },
+                  ].map((item) => (
+                    <div key={item.label} className="bg-gray-50 px-4 py-3 text-center">
+                      <p className="text-[10px] text-gray-400 tracking-widest mb-1">{item.label}</p>
+                      <p className="text-xs font-bold text-navy">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Uniform */}
+          <div className="border-t border-gray-200 py-10">
+            <div className="flex flex-col lg:flex-row lg:gap-16">
+              <div className="lg:w-1/3 mb-4 lg:mb-0">
+                <p className="text-xs tracking-widest text-gray-400 uppercase mb-1">Uniform & Tools</p>
+                <h2 className="text-lg font-black text-navy tracking-tight">制服・工具の貸与</h2>
+                <div className="line-blue mt-3" />
+              </div>
+              <div className="lg:w-2/3">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                  作業着（制服）・安全靴・ヘルメットなど現場で必要な装備は会社が貸与します。入社時に自費で購入する必要はありません。毎日の現場に出かける準備が整っています。
+                </p>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  工具類（ドリル・フレアツール・真空ポンプなど）もすべて会社が準備します。高額な工具を個人で揃える必要がなく、手ぶらで入社してすぐに仕事が始められます。
+                </p>
+                <div className="bg-gray-50 px-4 py-3">
+                  <p className="text-xs text-gray-500">制服（会社貸与）/ 安全靴・ヘルメット / 工具一式（会社所有）/ 入社時の自己負担なし</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Photos */}
           <div className="mb-10">
             <h2 className="text-lg font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">働く環境</h2>
@@ -322,7 +378,7 @@ export default function Welfare() {
 
           {/* FAQ */}
           <div className="mb-12">
-            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">福利厚生についてよくある質問</h2>
+            <h2 className="text-xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">福利厚生についてよくある質問（13問）</h2>
             <div className="space-y-4">
               {faqItems.map((item, i) => (
                 <div key={i} className="border border-gray-200">
