@@ -472,6 +472,7 @@ export default function FaqPage() {
             <p className="text-xs text-slate-400 tracking-widest uppercase mb-4">関連ページ</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
+                { href: '/area/atsugi', label: '厚木市の求人詳細' },
                 { href: '/recruit', label: '募集要項' },
                 { href: '/work', label: '仕事内容' },
                 { href: '/welfare', label: '福利厚生' },

@@ -21,6 +21,7 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
       { url: `${BASE_URL}/entry`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
       { url: `${BASE_URL}/work`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
       { url: `${BASE_URL}/jobs`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+      { url: `${BASE_URL}/area/atsugi`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
       { url: `${BASE_URL}/area`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
       { url: `${BASE_URL}/beginner`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
       { url: `${BASE_URL}/welfare`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },

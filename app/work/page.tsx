@@ -41,6 +41,7 @@ const internalLinks = [
   { href: '/jobs/setsubi', label: '設備工事総合スタッフ求人' },
   { href: '/beginner', label: '未経験の方へ' },
   { href: '/welfare', label: '福利厚生' },
+  { href: '/area/atsugi', label: '厚木市の求人詳細' },
   { href: '/area', label: '地域別求人' },
   { href: '/recruit', label: '募集要項' },
   { href: '/entry', label: '応募フォーム' },

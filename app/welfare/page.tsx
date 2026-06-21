@@ -402,6 +402,7 @@ export default function Welfare() {
             <p className="text-xs text-gray-400 tracking-widest mb-4">関連ページ</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
+                { href: '/area/atsugi', label: '厚木市の求人詳細' },
                 { href: '/work', label: '仕事内容' },
                 { href: '/beginner', label: '未経験の方へ' },
                 { href: '/day', label: '1日の流れ' },

@@ -3,25 +3,26 @@ import Link from 'next/link'
 import { jobs } from '@/data/jobs'
 
 export const metadata: Metadata = {
-  title: '【神奈川県 設備工事求人】エアコン・給湯器・電気工事スタッフ募集｜宝宮設備',
+  title: '厚木市の設備工事スタッフ求人｜エアコン工事・給湯器交換・電気工事',
   description:
-    '神奈川県の設備工事求人。厚木市の宝宮設備ではエアコン工事・給湯器交換・電気工事スタッフを募集。未経験歓迎・月給25万〜70万円・残業なし・資格取得費用全額会社負担。手に職をつけたい方へ。',
+    '厚木市で設備工事スタッフの求人を探している方へ。株式会社宝宮設備では、エアコン工事・給湯器交換・電気工事スタッフを募集中。未経験歓迎・月給25万〜70万円・残業なし・資格取得費用全額会社負担。',
   keywords: [
-    '神奈川県 設備工事 求人',
     '厚木市 設備工事 求人',
-    '設備工事スタッフ 求人',
+    '厚木市 設備工事スタッフ 求人',
+    '神奈川県 設備工事 求人',
+    '厚木市 技術職 求人',
     '設備工事 未経験 求人',
-    '技術職 求人 神奈川',
-    '手に職 求人 神奈川',
+    '手に職 求人 厚木市',
     'エアコン工事 求人 神奈川',
     '給湯器交換 求人',
     '電気工事 求人 神奈川',
   ],
   openGraph: {
-    title: '【神奈川県 設備工事求人】エアコン・給湯器・電気工事スタッフ募集｜宝宮設備',
-    description: '神奈川県の設備工事求人。厚木市の宝宮設備。未経験歓迎・月給25万〜70万円・残業なし。',
+    title: '厚木市の設備工事スタッフ求人｜エアコン工事・給湯器交換・電気工事',
+    description: '厚木市で設備工事求人を探している方へ。宝宮設備（厚木市温水西）。未経験歓迎・月給25万〜70万円・残業なし。',
     locale: 'ja_JP',
     type: 'website',
+    url: 'https://www.houmiya-recruit.com/jobs',
   },
   alternates: { canonical: 'https://www.houmiya-recruit.com/jobs' },
 }
@@ -404,6 +405,7 @@ export default function JobsPage() {
             <h3 className="text-xs font-bold text-gray-400 tracking-widest mb-4">関連ページ</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
+                { href: '/area/atsugi', label: '厚木市の求人' },
                 { href: '/work', label: '仕事内容' },
                 { href: '/beginner', label: '未経験の方へ' },
                 { href: '/welfare', label: '福利厚生' },

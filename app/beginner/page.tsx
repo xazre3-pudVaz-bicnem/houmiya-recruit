@@ -5,24 +5,26 @@ import EntrySection from '@/components/EntrySection'
 import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
-  title: '未経験から設備工事スタッフへ｜神奈川県厚木市の株式会社宝宮設備',
+  title: '厚木市で未経験から設備工事スタッフへ｜手に職をつける求人',
   description:
-    '設備工事が未経験でも安心。神奈川県厚木市の宝宮設備では入社後の研修・資格取得支援・先輩同行でゼロから技術を習得できます。月給25万円〜70万円・残業なし・AT限定可。',
+    '厚木市で未経験歓迎の技術職求人を探している方へ。株式会社宝宮設備では設備工事・エアコン工事・給湯器交換・電気工事を未経験から学べます。月給25万円〜70万円・残業なし・資格取得支援あり。',
   keywords: [
-    '設備工事 未経験',
+    '厚木市 未経験 求人',
+    '厚木市 手に職 求人',
     '設備工事 未経験 求人',
     '神奈川 未経験 技術職',
-    '厚木市 未経験 求人',
     '手に職 未経験 神奈川',
-    '給湯器工事 未経験',
+    '厚木市 技術職 求人',
     '電気工事 未経験',
   ],
   openGraph: {
-    title: '未経験から設備工事スタッフへ｜宝宮設備（厚木市）',
-    description: '神奈川県の設備工事未経験求人。入社後研修・資格支援・先輩同行でゼロからスタート。月給25万〜70万円。',
+    title: '厚木市で未経験から設備工事スタッフへ｜手に職をつける求人',
+    description: '厚木市で未経験歓迎の技術職求人。設備工事を一から学べる研修制度・資格取得支援あり。月給25万〜70万円・残業なし。',
     locale: 'ja_JP',
     type: 'website',
+    url: 'https://www.houmiya-recruit.com/beginner',
   },
+  twitter: { card: 'summary_large_image' },
   alternates: { canonical: 'https://www.houmiya-recruit.com/beginner' },
 }
 
@@ -403,11 +405,12 @@ export default function Beginner() {
             <p className="text-xs text-gray-400 tracking-widest mb-4">関連ページ</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
+                { href: '/area/atsugi', label: '厚木市の未経験求人' },
+                { href: '/jobs', label: '職種別求人' },
                 { href: '/work', label: '仕事内容' },
                 { href: '/welfare', label: '福利厚生' },
                 { href: '/day', label: '1日の流れ' },
                 { href: '/faq', label: 'よくある質問' },
-                { href: '/jobs', label: '職種別求人' },
                 { href: '/column', label: '求人コラム' },
                 { href: '/knowledge/setsubi-kouji-mikeiken', label: '未経験から始める流れ' },
                 { href: '/knowledge/shikaku-nashi-setsubi-kouji', label: '資格なしでも大丈夫？' },
