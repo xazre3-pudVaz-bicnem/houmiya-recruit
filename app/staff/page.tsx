@@ -5,10 +5,10 @@ import EntrySection from '@/components/EntrySection'
 import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
-  title: 'スタッフ紹介・職場環境｜宝宮設備の仲間たち',
+  title: 'スタッフ紹介・職場環境｜厚木市の設備工事会社 宝宮設備の仲間たち',
   description:
-    '宝宮設備のスタッフ・職場環境を紹介。20代中心の若いチームで、エアコン工事・給湯器交換・電気工事に取り組む神奈川県の設備工事会社です。未経験入社のスタッフも多数活躍中。',
-  keywords: ['宝宮設備 スタッフ', '設備工事 職場環境', '宝宮設備 会社紹介', '厚木 設備工事 スタッフ'],
+    '厚木市・神奈川の設備工事会社 宝宮設備のスタッフ・職場環境を紹介。20代中心の若いチームで、エアコン工事・給湯器交換・電気工事に取り組んでいます。未経験入社のスタッフも多数活躍中。',
+  keywords: ['宝宮設備 スタッフ', '設備工事 職場環境 厚木市', '宝宮設備 会社紹介', '厚木市 設備工事 スタッフ', '厚木市 求人 職場'],
   openGraph: {
     title: 'スタッフ紹介・職場環境｜宝宮設備',
     description: '20代中心の若いチームで神奈川県全域を動かす設備工事会社・宝宮設備のスタッフを紹介。',
@@ -255,13 +255,26 @@ export default function Staff() {
           </div>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 mb-8">
             <Link href="/welfare" className="btn-outline text-sm px-6 py-3.5">
               福利厚生を見る
             </Link>
             <Link href="/entry" className="btn-primary text-sm px-6 py-3.5">
               応募フォームへ
             </Link>
+          </div>
+
+          <div className="pt-6 border-t border-gray-100">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { href: '/area/atsugi', label: '厚木市の求人詳細' },
+                { href: '/company',     label: '会社概要' },
+                { href: '/gallery',     label: '現場ギャラリー' },
+                { href: '/day',         label: '1日の流れ' },
+              ].map((link) => (
+                <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">{link.label} →</Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

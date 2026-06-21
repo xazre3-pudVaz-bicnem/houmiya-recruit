@@ -262,12 +262,13 @@ export default function JobPage({ params }: { params: { type: string } }) {
           <div className="pt-8 border-t border-gray-100">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
-                { href: '/recruit', label: '募集要項' },
-                { href: '/area', label: '地域別求人' },
-                { href: '/beginner', label: '未経験の方へ' },
-                { href: '/welfare', label: '福利厚生' },
-                { href: '/faq', label: 'よくある質問' },
-                { href: '/entry', label: 'エントリー' },
+                { href: '/recruit',       label: '募集要項' },
+                { href: '/area/atsugi',   label: '厚木市の求人' },
+                { href: '/beginner',      label: '未経験の方へ' },
+                { href: '/welfare',       label: '福利厚生' },
+                { href: '/company',       label: '会社概要' },
+                { href: '/faq',           label: 'よくある質問' },
+                { href: '/entry',         label: 'エントリー' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">
                   {link.label} →

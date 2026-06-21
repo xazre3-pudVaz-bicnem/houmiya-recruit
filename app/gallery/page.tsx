@@ -5,10 +5,10 @@ import EntrySection from '@/components/EntrySection'
 import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
-  title: '現場ギャラリー｜エアコン工事・給湯器交換・電気工事の現場写真｜宝宮設備',
+  title: '現場ギャラリー｜厚木市の設備工事現場写真・職場の雰囲気｜宝宮設備',
   description:
-    '宝宮設備の実際の現場写真・スタッフ写真を紹介。エアコン工事・給湯器交換・電気工事の現場から、社用車・倉庫・社内の雰囲気まで。神奈川県の設備工事求人の実際の職場をご覧ください。',
-  keywords: ['宝宮設備 現場写真', '設備工事 職場 神奈川', 'エアコン工事 現場', '給湯器交換 現場', '宝宮設備 スタッフ'],
+    '宝宮設備（厚木市）の実際の現場写真・スタッフ写真を紹介。エアコン工事・給湯器交換・電気工事の現場から、社用車・倉庫・社内の雰囲気まで。神奈川県厚木市の設備工事求人の職場をご覧ください。',
+  keywords: ['宝宮設備 現場写真', '設備工事 職場 厚木市', 'エアコン工事 現場 神奈川', '給湯器交換 現場', '宝宮設備 スタッフ', '厚木市 設備工事会社'],
   openGraph: {
     title: '現場ギャラリー｜宝宮設備の仕事現場・スタッフ写真',
     description: 'エアコン工事・給湯器交換・電気工事の現場写真、スタッフの様子を紹介。神奈川県厚木市の設備工事会社。',
@@ -227,13 +227,26 @@ export default function Gallery() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 mb-8">
             <Link href="/work" className="btn-outline text-sm px-6 py-3.5">
               仕事内容を見る
             </Link>
             <Link href="/entry" className="btn-primary text-sm px-6 py-3.5">
               応募フォームへ
             </Link>
+          </div>
+
+          <div className="pt-6 border-t border-gray-100">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { href: '/area/atsugi', label: '厚木市の求人詳細' },
+                { href: '/company',     label: '会社概要' },
+                { href: '/staff',       label: 'スタッフ紹介' },
+                { href: '/welfare',     label: '福利厚生' },
+              ].map((link) => (
+                <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">{link.label} →</Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>

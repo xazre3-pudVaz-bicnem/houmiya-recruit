@@ -5,16 +5,16 @@ import EntrySection from '@/components/EntrySection'
 import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
-  title: '福利厚生・働く環境｜資格取得支援・車両貸出・昼食補助あり｜宝宮設備',
+  title: '福利厚生・働く環境｜厚木市の設備工事求人 社会保険・資格支援・残業なし｜宝宮設備',
   description:
-    '宝宮設備の福利厚生を詳しく紹介。社会保険完備・車両貸出・昼食補助・資格取得支援（全額会社負担）・社宅相談・制服貸与。残業なし（8:30〜17:00）で長く働ける設備工事求人。',
+    '厚木市・神奈川の設備工事求人 宝宮設備の福利厚生。社会保険完備・車両貸出・昼食補助・資格取得支援（全額会社負担）・社宅相談・残業なし（8:30〜17:00）。長く安心して働ける環境。',
   keywords: [
-    '設備工事 福利厚生',
-    '資格取得支援 求人 神奈川',
-    '社宅相談 求人',
-    '車両貸出 求人',
-    '残業なし 求人 神奈川',
-    '厚木市 技術職 求人',
+    '厚木市 設備工事 福利厚生',
+    '資格取得支援 求人 厚木市',
+    '社宅相談 求人 神奈川',
+    '車両貸出 求人 厚木市',
+    '残業なし 求人 厚木市',
+    '社会保険 設備工事 求人',
   ],
   openGraph: {
     title: '福利厚生・働く環境｜宝宮設備（神奈川県厚木市）',
@@ -412,6 +412,7 @@ export default function Welfare() {
                 { href: '/knowledge/sharyo-kashidashi-kyujin', label: '車両貸出求人の詳細' },
                 { href: '/knowledge/shikaku-shien-setsubi-kouji', label: '資格取得支援の詳細' },
                 { href: '/knowledge/chushoku-hojo-kyujin', label: '昼食補助求人の詳細' },
+                { href: '/company',       label: '会社概要' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">{link.label} →</Link>
               ))}
