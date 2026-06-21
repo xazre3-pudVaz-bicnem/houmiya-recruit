@@ -16,6 +16,7 @@ const footerLinks = [
   { href: '/blog',              label: '採用ブログ' },
   { href: '/staff',             label: 'スタッフ紹介' },
   { href: '/gallery',           label: '現場ギャラリー' },
+  { href: '/company',           label: '会社概要' },
   { href: '/entry',             label: '応募フォーム' },
 ]
 

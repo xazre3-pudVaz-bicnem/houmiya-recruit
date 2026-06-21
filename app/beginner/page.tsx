@@ -406,6 +406,7 @@ export default function Beginner() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
                 { href: '/area/atsugi', label: '厚木市の未経験求人' },
+                { href: '/company', label: '宝宮設備について' },
                 { href: '/jobs', label: '職種別求人' },
                 { href: '/work', label: '仕事内容' },
                 { href: '/welfare', label: '福利厚生' },

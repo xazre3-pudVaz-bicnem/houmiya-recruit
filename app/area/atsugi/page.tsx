@@ -283,7 +283,12 @@ export default function AtsugiPage() {
                 ))}
               </div>
             </div>
-            <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+            <div className="mt-4">
+              <Link href="/company" className="text-sm font-bold text-orange-500 hover:text-orange-400 transition-colors">
+                株式会社宝宮設備の会社概要を見る →
+              </Link>
+            </div>
+            <div className="space-y-3 text-sm text-gray-700 leading-relaxed mt-4">
               <p>
                 厚木市は神奈川県のほぼ中央に位置し、東名高速道路インター・圏央道へのアクセスが良好なエリアです。
                 本社を厚木市に構えることで、海老名市・大和市・座間市・伊勢原市・相模原市・平塚市・藤沢市など
@@ -673,6 +678,7 @@ export default function AtsugiPage() {
             <p className="text-xs text-gray-400 mb-3 tracking-wider uppercase">関連ページ</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
+                { href: '/company', label: '宝宮設備 会社概要' },
                 { href: '/jobs', label: '職種別求人一覧' },
                 { href: '/jobs/aircon', label: 'エアコン工事求人' },
                 { href: '/jobs/water-heater', label: '給湯器交換求人' },

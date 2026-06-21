@@ -374,6 +374,7 @@ export default function Recruit() {
                 { href: '/beginner', label: '未経験の方へ' },
                 { href: '/welfare', label: '福利厚生について' },
                 { href: '/area/atsugi', label: '厚木市の求人詳細' },
+                { href: '/company', label: '会社概要' },
                 { href: '/area', label: '地域別求人' },
                 { href: '/faq', label: 'よくある質問' },
               ].map((link) => (

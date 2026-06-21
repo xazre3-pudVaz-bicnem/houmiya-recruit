@@ -17,6 +17,7 @@ export default function sitemap({ id }: { id: number }): MetadataRoute.Sitemap {
   if (id === 0) {
     return [
       { url: BASE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
+      { url: `${BASE_URL}/company`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
       { url: `${BASE_URL}/recruit`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
       { url: `${BASE_URL}/entry`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
       { url: `${BASE_URL}/work`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },

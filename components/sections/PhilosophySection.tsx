@@ -2,6 +2,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number]
 
@@ -67,6 +68,12 @@ export default function PhilosophySection() {
                 株式会社宝宮設備
               </span>
               <span className="text-slate-400 text-xs">代表取締役 小宮龍亮</span>
+              <Link
+                href="/company"
+                className="text-[10px] text-slate-400 hover:text-orange-500 transition-colors tracking-wide ml-2"
+              >
+                会社概要 →
+              </Link>
             </motion.div>
           </div>
 

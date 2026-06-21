@@ -406,6 +406,7 @@ export default function JobsPage() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
                 { href: '/area/atsugi', label: '厚木市の求人' },
+                { href: '/company', label: '会社概要' },
                 { href: '/work', label: '仕事内容' },
                 { href: '/beginner', label: '未経験の方へ' },
                 { href: '/welfare', label: '福利厚生' },
