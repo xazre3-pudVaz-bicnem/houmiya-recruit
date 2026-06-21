@@ -71,6 +71,30 @@ const faqItems = [
     q: '将来的に複数の職種に対応できますか？',
     a: 'はい。まず1職種を習得したあと、段階的に他の職種（エアコン・給湯器・電気）も覚えていただきます。複数職種に対応できるほど給与が上がる仕組みです。',
   },
+  {
+    q: '設備工事の仕事は体力的にきついですか？',
+    a: '作業内容によります。エアコン室外機の運搬・屋外作業（夏は特に暑い）などは体力が必要ですが、重い機器の移動は2人体制で行います。給湯器交換・電気工事は精密作業が多く、体力よりも丁寧さが求められます。体は経験の中で慣れていきます。',
+  },
+  {
+    q: '神奈川県以外に住んでいますが応募できますか？',
+    a: 'はい。神奈川県外在住でも応募できます。社宅相談に対応していますので、厚木市または近隣への転居を検討している方はお気軽にご相談ください。',
+  },
+  {
+    q: '第二種電気工事士の試験はどのくらいで合格できますか？',
+    a: '一般的な合格目安は4〜6ヶ月の学習期間です。宝宮設備では試験対策のテキストと練習材料を会社が用意します。残業なし（17:00終業）のため毎日勉強時間を確保でき、試験前には業務量の調整もします。',
+  },
+  {
+    q: '土曜日も仕事がありますか？',
+    a: 'はい、土曜日は出勤があります。休日は日曜・祝日です（土曜出勤あり）。現場のスケジュールによって週によって変動することもありますが、原則として日曜・祝日はお休みです。',
+  },
+  {
+    q: '厚木市以外のエリアに配属されることはありますか？',
+    a: '勤務地は「神奈川県全域の各現場」です。厚木市を中心に海老名・大和・座間・伊勢原・相模原・平塚・藤沢など広域の現場を担当します。基本的に神奈川県外の現場はありません。',
+  },
+  {
+    q: '未経験なのに月給25万円からもらえるのですか？',
+    a: 'はい。入社後1ヶ月の研修期間終了後から月給250,000円〜が保証されます（試用期間の詳細は面接時にご確認ください）。経験・資格の有無にかかわらず、研修後は25万円からスタートします。',
+  },
 ]
 
 const faqSchema = {
@@ -205,6 +229,65 @@ export default function JobsPage() {
                   </Link>
                 )
               })}
+            </div>
+          </div>
+
+          {/* Job type comparison */}
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">
+              4職種の違いを比較する
+            </h2>
+            <p className="text-sm text-gray-600 leading-relaxed mb-5">
+              宝宮設備では4つの職種を募集しています。「どの職種が自分に向いているか？」という参考に、それぞれの特徴をまとめました。入社後は希望・適性を見て職種を決定します。
+            </p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs border-collapse">
+                <thead>
+                  <tr className="bg-navy text-white">
+                    <th className="px-3 py-3 text-left font-bold w-28"></th>
+                    <th className="px-3 py-3 text-center font-bold">エアコン工事</th>
+                    <th className="px-3 py-3 text-center font-bold">給湯器交換</th>
+                    <th className="px-3 py-3 text-center font-bold">電気工事</th>
+                    <th className="px-3 py-3 text-center font-bold">設備（総合）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['需要の季節性', '夏（6〜9月）が多い', '冬（11〜2月）が多い', '年間を通じて安定', '季節に左右されない'],
+                    ['必要な主な資格', '冷媒取扱技術者', '簡易内管施工士', '第二種電気工事士', '複数資格を順次取得'],
+                    ['体力への負担', 'やや高い（夏・屋外）', '中程度', '中程度（精密作業多め）', '状況により異なる'],
+                    ['1件の作業時間', '1〜3時間（標準）', '2〜4時間', '1〜5時間', '職種による'],
+                    ['1日の件数', '2〜5件', '2〜3件', '1〜4件', '職種による'],
+                    ['向いている人', '動きが多い仕事が好きな人', '丁寧に・確実に仕事したい人', '細かい作業が好きな人', '複数スキルを身につけたい人'],
+                  ].map(([label, ...cells]) => (
+                    <tr key={label} className="border-b border-gray-100 even:bg-gray-50">
+                      <td className="px-3 py-3 font-bold text-navy text-[11px]">{label}</td>
+                      {cells.map((cell, i) => (
+                        <td key={i} className="px-3 py-3 text-gray-600 text-center leading-snug">{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-gray-400 mt-3">※件数・時間は目安です。現場の条件・難易度によって変わります。</p>
+          </div>
+
+          {/* Atsugi / Kanagawa demand */}
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">
+              厚木市・神奈川県で設備工事スタッフが求められる理由
+            </h2>
+            <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+              <p>
+                厚木市は神奈川県の内陸中央部に位置し、住宅地・商業地・工業地が混在するエリアです。1970〜1990年代に建設された住宅ストックが多く、エアコン・給湯器・電気設備の更新需要が安定して発生しています。
+              </p>
+              <p>
+                神奈川県は人口約920万人（2025年時点）を擁する全国第2位の人口規模を持つ都道府県です。住宅密度が高く、住宅設備工事の件数も全国でも上位クラスです。横浜・川崎・相模原・厚木・海老名など各エリアで常に設備工事の依頼が発生しています。
+              </p>
+              <p>
+                設備工事技術者の平均年齢は全国的に上昇しており、神奈川県でも若い職人の確保が業界全体の課題です。未経験から採用・育成する体制を持つ宝宮設備では、若い人材が早期に仕事を任される環境が整っています。
+              </p>
             </div>
           </div>
 
@@ -378,7 +461,7 @@ export default function JobsPage() {
           {/* FAQ */}
           <div>
             <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-6 pb-3 border-b border-gray-200">
-              よくある質問（設備工事求人 全般）
+              よくある質問（設備工事求人 全般・15問）
             </h2>
             <div className="space-y-4">
               {faqItems.map((item, i) => (
@@ -405,16 +488,19 @@ export default function JobsPage() {
             <h3 className="text-xs font-bold text-gray-400 tracking-widest mb-4">関連ページ</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
-                { href: '/area/atsugi', label: '厚木市の求人' },
-                { href: '/company', label: '会社概要' },
-                { href: '/work', label: '仕事内容' },
-                { href: '/beginner', label: '未経験の方へ' },
-                { href: '/welfare', label: '福利厚生' },
-                { href: '/area', label: '地域別求人' },
-                { href: '/recruit', label: '募集要項' },
-                { href: '/faq', label: 'よくある質問' },
-                { href: '/knowledge', label: '転職ナレッジ' },
-                { href: '/entry', label: 'エントリー' },
+                { href: '/area/atsugi',       label: '厚木市の求人' },
+                { href: '/company',           label: '会社概要' },
+                { href: '/work',              label: '仕事内容' },
+                { href: '/beginner',          label: '未経験の方へ' },
+                { href: '/welfare',           label: '福利厚生' },
+                { href: '/staff',             label: 'スタッフ紹介' },
+                { href: '/day',               label: '1日の流れ' },
+                { href: '/gallery',           label: '現場ギャラリー' },
+                { href: '/area',              label: '地域別求人' },
+                { href: '/recruit',           label: '募集要項' },
+                { href: '/faq',               label: 'よくある質問' },
+                { href: '/knowledge',         label: '転職ナレッジ' },
+                { href: '/entry',             label: 'エントリー' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">
                   {link.label} →

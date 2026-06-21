@@ -140,52 +140,6 @@ const localBusinessSchema = {
   },
 }
 
-const jobPostingSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'JobPosting',
-  title: '厚木市の設備工事スタッフ求人（エアコン工事・給湯器交換・電気工事）',
-  description:
-    '神奈川県厚木市を拠点に設備工事スタッフ（正社員）を募集。エアコン工事・給湯器交換・電気工事の3職種。未経験歓迎・残業なし・資格取得支援（全額会社負担）。',
-  datePosted: '2025-01-01',
-  validThrough: '2026-12-31T23:59:59',
-  employmentType: 'FULL_TIME',
-  directApply: true,
-  hiringOrganization: {
-    '@type': 'Organization',
-    name: '株式会社宝宮設備',
-    sameAs: BASE_URL,
-  },
-  jobLocation: {
-    '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '温水西1-4-39',
-      addressLocality: '厚木市',
-      addressRegion: '神奈川県',
-      postalCode: '243-0036',
-      addressCountry: 'JP',
-    },
-  },
-  applicantLocationRequirements: {
-    '@type': 'AdministrativeArea',
-    name: '神奈川県',
-  },
-  baseSalary: {
-    '@type': 'MonetaryAmount',
-    currency: 'JPY',
-    value: {
-      '@type': 'QuantitativeValue',
-      minValue: 250000,
-      maxValue: 700000,
-      unitText: 'MONTH',
-    },
-  },
-  workHours: '8:30〜17:00（残業なし）',
-  jobBenefits:
-    '社会保険完備・資格取得支援（会社全額負担）・車両貸出・昼食補助・制服貸与・社宅相談可・賞与年2回',
-  qualifications: '未経験可・要普通自動車免許（AT限定可）',
-}
-
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -210,7 +164,6 @@ export default function AtsugiPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
