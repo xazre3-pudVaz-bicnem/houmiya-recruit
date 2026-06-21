@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description:
     '神奈川県厚木市の設備工事求人。厚木の電気工事・エアコン工事求人で未経験歓迎。宝宮設備は厚木市温水西に拠点を置く設備工事会社です。',
   keywords: ['厚木 設備工事 求人', '厚木 電気工事 求人', '厚木 エアコン工事 求人', '厚木市 現場仕事 求人'],
+  robots: { index: false, follow: false },
+  alternates: { canonical: 'https://www.houmiya-recruit.com/area/atsugi' },
 }
 
 export default function AreaAtsugi() {

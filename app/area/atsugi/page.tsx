@@ -86,7 +86,27 @@ const faqItems = [
   },
   {
     q: '応募から採用までの流れを教えてください。',
-    a: 'エントリーフォームまたはお電話でご連絡→書類選考→面接（厚木市の本社にて）→内定・入社日の決定、という流れです。面接日程は柔軟に調整できます。詳しくは/entryのエントリーフォームからお問い合わせください。',
+    a: 'エントリーフォームまたはお電話でご連絡→書類確認・日程調整→面接（厚木市の本社にて）→内定・入社日の決定、という流れです。面接日程は柔軟に調整できます。詳しくはエントリーフォームからお問い合わせください。',
+  },
+  {
+    q: '厚木市温水西の本社周辺はどのような環境ですか？',
+    a: '温水西は厚木市の住宅地で、周辺にはコンビニ・飲食店・スーパーがあります。国道129号からもアクセスしやすく、海老名・伊勢原方面への移動もスムーズです。本社には倉庫があり、工具・資材の管理をしています。',
+  },
+  {
+    q: '厚木市在住ではありませんが、厚木市に引越したほうがよいですか？',
+    a: '必須ではありませんが、厚木市在住だと通勤・現場直行が非常に楽になります。近隣市（海老名市・大和市・座間市・伊勢原市など）在住の方も多く在籍しています。社宅相談が可能ですので、転居を検討中の方はまずご相談ください。',
+  },
+  {
+    q: '設備工事スタッフは将来的に収入を増やせますか？',
+    a: 'はい。技術の向上・資格取得によって担当できる現場の幅が広がり、月給が随時見直されます。未経験スタート（月給25万円〜）から、複数の資格を持つベテランスタッフは月給70万円超も可能です。年功序列ではなく、実力主義の給与体系です。',
+  },
+  {
+    q: '社会保険はどんな内容ですか？',
+    a: '健康保険・厚生年金・雇用保険・労災保険の4種が完備されています。入社日から適用されます。厚生年金は国民年金より受給額が多く、長期的な安心につながります。保険料は会社と折半です。',
+  },
+  {
+    q: '厚木市で長く安定して働くことはできますか？',
+    a: 'はい。設備工事は需要が安定しており、景気に左右されにくい仕事です。残業なし・社会保険完備・資格取得支援という環境で、30代・40代まで現役で活躍できます。技術と資格は定年まで通用するポータブルスキルです。',
   },
 ]
 
@@ -573,7 +593,139 @@ export default function AtsugiPage() {
             </div>
           </div>
 
-          {/* 10. 給与・勤務時間・福利厚生 */}
+          {/* 10. 厚木市周辺で設備工事需要がある理由 */}
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">
+              厚木市周辺で設備工事の需要が多い理由
+            </h2>
+            <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+              <p>
+                厚木市は神奈川県のほぼ中央に位置し、戸建て住宅・マンション・賃貸物件・店舗が混在する住宅密集エリアです。
+                1970〜1990年代に建設された住宅の設備更新需要が増加しており、エアコン・給湯器・電気設備の交換工事が年間を通じて安定して入ります。
+              </p>
+              <p>
+                特にエアコン工事は、厚木市の夏（6〜9月）に需要が急増します。気温が高くなる時期は市内全域でエアコンの取付・交換依頼が集中し、
+                宝宮設備のスタッフは繁忙期に多くの現場を経験することができます。これが技術習得スピードを加速させる一因です。
+              </p>
+              <p>
+                給湯器は平均10〜15年で寿命を迎えます。厚木市・海老名市・伊勢原市など近隣市でも老朽化した給湯器の交換需要が続いており、
+                冬場（11〜2月）を中心に急な故障対応の依頼が増えます。電気工事は住宅リフォーム・省エネ化の流れで年中需要があります。
+              </p>
+            </div>
+            <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { label: 'エアコン工事', body: '普及率90%超・10〜15年の交換サイクル。厚木市内の戸建て・マンションから安定した依頼。' },
+                { label: '給湯器交換', body: '老朽化更新に加え、エコキュートへの省エネ切替需要が増加。冬の緊急交換依頼も多い。' },
+                { label: '電気工事', body: 'リフォーム・LED化・EV充電設備など電気工事の需要が拡大。厚木市の中古住宅でも電気設備更新が進む。' },
+              ].map((item) => (
+                <div key={item.label} className="bg-slate-50 p-4">
+                  <p className="text-xs font-black text-navy mb-2">{item.label}</p>
+                  <p className="text-xs text-gray-600 leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 11. 資格取得支援とキャリアアップ */}
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">
+              資格取得支援とキャリアアップロードマップ
+            </h2>
+            <div className="space-y-3 text-sm text-gray-700 leading-relaxed mb-6">
+              <p>
+                設備工事は資格があるほど「担当できる作業の幅」と「収入」が広がる仕事です。
+                宝宮設備では、エアコン工事・給湯器交換・電気工事に関連する主要資格の取得費用を全額会社が負担します。
+                受験料・テキスト代・講習費用の自己負担はゼロです。
+              </p>
+              <p>
+                厚木市を拠点に毎日現場を経験しながら資格の勉強を進めることで、効率的にスキルアップできます。
+                17:00終業・残業なしのため、勉強時間を確保しやすい環境です。
+              </p>
+            </div>
+            <div className="space-y-3">
+              {[
+                {
+                  name: '冷媒取扱技術者（第一種・第二種）',
+                  when: '入社後6ヶ月〜1年',
+                  desc: 'エアコンに使用される冷媒（フロンガス）の回収・充填に必要。エアコン工事の担当範囲が大幅に広がります。費用：会社全額負担。',
+                },
+                {
+                  name: '第二種電気工事士',
+                  when: '入社後1〜2年',
+                  desc: '住宅・小規模店舗の電気工事（100V・200V）を行うための国家資格。取得後は電気工事を本格担当でき、月給が大幅アップします。費用：会社全額負担。',
+                },
+                {
+                  name: '簡易内管施工士',
+                  when: '入社後1〜2年',
+                  desc: 'ガス給湯器に関連する配管工事に必要な資格。給湯器交換の作業範囲が広がります。費用：会社全額負担。',
+                },
+              ].map((item) => (
+                <div key={item.name} className="border border-gray-100 p-4 sm:p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-2 mb-2">
+                    <p className="text-sm font-black text-navy">{item.name}</p>
+                    <span className="text-[10px] bg-orange-50 text-orange-600 border border-orange-200 px-2 py-0.5 font-bold whitespace-nowrap w-fit">{item.when}</span>
+                  </div>
+                  <p className="text-xs text-gray-600 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 12. 車両貸出・直行直帰について */}
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">
+              厚木市での車両貸出・直行直帰の働き方
+            </h2>
+            <div className="space-y-3 text-sm text-gray-700 leading-relaxed mb-5">
+              <p>
+                宝宮設備のスタッフは、会社の軽バン（AT車）を使って毎日現場へ移動します。
+                工具・資材はあらかじめ車に積んであるため、現場に直行して作業を開始できます。
+                燃料費・高速料金など現場移動に伴う費用はすべて会社が負担します。
+              </p>
+              <p>
+                現場から直接帰宅できる「直帰」が基本のため、毎日本社（厚木市温水西）に戻る必要はありません。
+                厚木市在住の方は、自宅付近の現場であれば通勤時間がほぼゼロになる日もあります。
+                AT限定免許でも運転できる車両を使用しているため、MT免許は不要です。
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { label: '車両', value: '軽バン（AT車）' },
+                { label: '燃料代', value: '会社全額負担' },
+                { label: '免許', value: 'AT限定でOK' },
+                { label: '直行直帰', value: '毎日可能' },
+              ].map((item) => (
+                <div key={item.label} className="bg-gray-50 p-4 text-center">
+                  <p className="text-[10px] text-gray-400 tracking-widest mb-1">{item.label}</p>
+                  <p className="text-sm font-black text-navy">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 13. 本厚木エリア・厚木市内の生活環境 */}
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">
+              厚木市で働きながら生活する
+            </h2>
+            <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+              <p>
+                本厚木駅は小田急線・相鉄線の主要駅で、横浜・新宿方面へのアクセスが良好です。
+                本社（厚木市温水西）は本厚木駅から車で10〜15分程度。
+                厚木市内にはスーパー・ホームセンター・飲食店が充実しており、仕事帰りの買い物も便利です。
+              </p>
+              <p>
+                17:00終業・残業なしのため、平日の夕方を自由に使えます。厚木市内には相模川での釣り・七沢温泉・鳶尾山（ハイキング）など自然アクティビティも豊富です。
+                アウトドアを楽しみながら技術職として安定して働ける、バランスの良い生活環境です。
+              </p>
+              <p>
+                厚木市での生活を始めたい神奈川県外からの応募者向けに、社宅相談にも対応しています。
+                厚木市内または近隣市での住居探しをサポートしますので、まずはお気軽にご相談ください。
+              </p>
+            </div>
+          </div>
+
+          {/* 14. 給与・勤務時間・福利厚生 */}
           <div>
             <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-5 pb-3 border-b border-gray-200">
               給与・勤務時間・福利厚生
@@ -599,10 +751,10 @@ export default function AtsugiPage() {
             </table>
           </div>
 
-          {/* 11. FAQ */}
+          {/* 15. FAQ */}
           <div>
             <h2 className="text-xl sm:text-2xl font-black text-navy tracking-tight mb-6 pb-3 border-b border-gray-200">
-              厚木市から応募する前によくある質問
+              厚木市から応募する前によくある質問（20問）
             </h2>
             <div className="space-y-4">
               {faqItems.map((item, i) => (
@@ -678,15 +830,18 @@ export default function AtsugiPage() {
             <p className="text-xs text-gray-400 mb-3 tracking-wider uppercase">関連ページ</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {[
-                { href: '/company', label: '宝宮設備 会社概要' },
-                { href: '/jobs', label: '職種別求人一覧' },
-                { href: '/jobs/aircon', label: 'エアコン工事求人' },
+                { href: '/company',           label: '宝宮設備 会社概要' },
+                { href: '/jobs',              label: '職種別求人一覧' },
+                { href: '/jobs/aircon',       label: 'エアコン工事求人' },
                 { href: '/jobs/water-heater', label: '給湯器交換求人' },
-                { href: '/jobs/electrical', label: '電気工事求人' },
-                { href: '/beginner', label: '未経験の方へ' },
-                { href: '/welfare', label: '福利厚生' },
-                { href: '/faq', label: 'よくある質問' },
-                { href: '/area', label: '地域別求人一覧' },
+                { href: '/jobs/electrical',   label: '電気工事求人' },
+                { href: '/jobs/setsubi',      label: '設備工事総合求人' },
+                { href: '/beginner',          label: '未経験の方へ' },
+                { href: '/welfare',           label: '福利厚生' },
+                { href: '/faq',               label: 'よくある質問' },
+                { href: '/recruit',           label: '募集要項' },
+                { href: '/work',              label: '仕事内容' },
+                { href: '/area',              label: '地域別求人一覧' },
               ].map((link) => (
                 <Link key={link.href} href={link.href} className="text-xs text-gray-500 hover:text-orange-500 transition-colors">
                   {link.label} →
