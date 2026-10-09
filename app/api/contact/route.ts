@@ -1,7 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
 
 const TO = 'homiya@houmiyasetubi.com'
+// 差出人は Resend で認証済みのドメイン（houmiya-recruit.com）のアドレスにする
+const DEFAULT_FROM = '宝宮設備 採用サイト <noreply@houmiya-recruit.com>'
+const RESEND_ENDPOINT = 'https://api.resend.com/emails'
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
 
 const EXP_LABELS: Record<string, string> = {
   none: '未経験（経験なし）',
@@ -24,15 +36,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: '必須項目が不足しています' }, { status: 400 })
     }
 
-    const transporter = nodemailer.createTransport({
-      host:   process.env.SMTP_HOST   ?? 'smtp.gmail.com',
-      port:   Number(process.env.SMTP_PORT ?? 587),
-      secure: process.env.SMTP_SECURE === 'true',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    })
+    // 空文字で設定されている場合も未設定として扱う
+    const apiKey = process.env.RESEND_API_KEY?.trim()
+    if (!apiKey) {
+      console.error('[contact API] RESEND_API_KEY が未設定のためメールを送信できません')
+      return NextResponse.json({ ok: false, error: 'メール送信に失敗しました' }, { status: 500 })
+    }
+    const from = process.env.MAIL_FROM?.trim() || DEFAULT_FROM
 
     const expLabel     = EXP_LABELS[experience]     ?? experience
     const contactLabel = CONTACT_LABELS[contactMethod] ?? contactMethod
@@ -67,27 +77,43 @@ export async function POST(req: NextRequest) {
     ].map(([label, value]) => `
     <tr>
       <th style="text-align:left;padding:10px 12px;background:#f8fafc;border:1px solid #e2e8f0;width:35%;font-weight:600;color:#475569">${label}</th>
-      <td style="padding:10px 12px;border:1px solid #e2e8f0;color:#1e293b">${value}</td>
+      <td style="padding:10px 12px;border:1px solid #e2e8f0;color:#1e293b">${escapeHtml(value)}</td>
     </tr>`).join('')}
   </table>
   ${message ? `
   <div style="margin-top:16px;padding:16px;background:#f8fafc;border:1px solid #e2e8f0">
     <p style="margin:0 0 8px;font-weight:600;color:#475569">メッセージ</p>
-    <p style="margin:0;color:#1e293b;white-space:pre-wrap">${message.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
+    <p style="margin:0;color:#1e293b;white-space:pre-wrap">${escapeHtml(message)}</p>
   </div>` : ''}
   <p style="margin-top:24px;font-size:12px;color:#94a3b8">
     このメールは宝宮設備採用サイトの応募フォームから自動送信されました。
   </p>
 </div>`
 
-    await transporter.sendMail({
-      from:    process.env.SMTP_FROM ?? `"宝宮設備 採用サイト" <${process.env.SMTP_USER}>`,
-      to:      TO,
-      replyTo: email || undefined,
-      subject: `【応募】${name} 様からのお問い合わせ`,
-      text:    textBody,
-      html:    htmlBody,
+    const replyTo = email && EMAIL_PATTERN.test(email.trim()) ? email.trim() : undefined
+
+    const res = await fetch(RESEND_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from,
+        to:       [TO],
+        reply_to: replyTo,
+        subject:  `【応募】${name} 様からのお問い合わせ`,
+        text:     textBody,
+        html:     htmlBody,
+      }),
+      cache: 'no-store',
     })
+
+    if (!res.ok) {
+      const detail = await res.text().catch(() => '')
+      console.error(`[contact API] Resend がエラーを返しました (${res.status})`, detail)
+      return NextResponse.json({ ok: false, error: 'メール送信に失敗しました' }, { status: 500 })
+    }
 
     return NextResponse.json({ ok: true })
   } catch (err) {
