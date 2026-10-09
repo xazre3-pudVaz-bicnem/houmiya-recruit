@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const TO = 'homiya@houmiyasetubi.com'
+// 宛先は環境変数 CONTACT_TO（カンマ区切りで複数可）で上書きできる
+const DEFAULT_TO = 'homiya@houmiyasetubi.com'
 // 差出人は Resend で認証済みのドメイン（houmiya-recruit.com）のアドレスにする
 const DEFAULT_FROM = '宝宮設備 採用サイト <noreply@houmiya-recruit.com>'
 const RESEND_ENDPOINT = 'https://api.resend.com/emails'
@@ -43,6 +44,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: 'メール送信に失敗しました' }, { status: 500 })
     }
     const from = process.env.MAIL_FROM?.trim() || DEFAULT_FROM
+    const to = (process.env.CONTACT_TO ?? '')
+      .split(',')
+      .map((address) => address.trim())
+      .filter(Boolean)
+    if (to.length === 0) to.push(DEFAULT_TO)
 
     const expLabel     = EXP_LABELS[experience]     ?? experience
     const contactLabel = CONTACT_LABELS[contactMethod] ?? contactMethod
@@ -100,7 +106,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from,
-        to:       [TO],
+        to,
         reply_to: replyTo,
         subject:  `【応募】${name} 様からのお問い合わせ`,
         text:     textBody,
